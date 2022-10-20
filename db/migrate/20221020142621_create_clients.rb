@@ -5,12 +5,9 @@ class CreateClients < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :phone
       t.text :bio
-      t.integer :user_id
-      t.integer :account_id
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
-    add_index :clients, :user_id
-    add_index :clients, :account_id
   end
 end

@@ -4,12 +4,9 @@ class CreateSchedules < ActiveRecord::Migration[7.0]
       t.string :title
       t.datetime :start
       t.datetime :end
-      t.integer :trainer_id
-      t.integer :account_id
+      t.references :trainer, null: false, foreign_key: true
 
       t.timestamps
     end
-    add_index :schedules, :trainer_id
-    add_index :schedules, :account_id
   end
 end

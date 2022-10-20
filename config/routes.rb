@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
   root 'static_pages#landing_page'
 
   get 'static_pages/dashboard'
@@ -16,12 +15,10 @@ Rails.application.routes.draw do
   #   sessions: 'users/sessions'
   # }
 
-  resources :lesson_payments
-  resources :bookings
-  resources :schedules
-  resources :clients
-  resources :trainers
-  resources :lessons, only: [:show, :index]
+  # resources :lesson_payments
+
+  resources :lessons
+  resources :trainers, :clients,:schedules,:bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

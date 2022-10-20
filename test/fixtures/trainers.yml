@@ -6,8 +6,7 @@ one:
   phone: MyString
   bio: MyText
   experience: MyString
-  user_id: 1
-  account_id: 1
+  user: one
 
 two:
   first_name: MyString
@@ -15,5 +14,4 @@ two:
   phone: MyString
   bio: MyText
   experience: MyString
-  user_id: 1
-  account_id: 1
+  user: two

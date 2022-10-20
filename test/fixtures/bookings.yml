@@ -4,22 +4,20 @@ one:
   status: MyString
   title: MyString
   cost: 1
-  start: 2022-10-20 15:04:28
+  start: 2022-10-20 16:32:43
   cancellation_reason: MyText
   refunded: false
-  trainer_id: 1
-  schedule_id: 1
-  lesson_id: 1
-  account_id: 1
+  trainer: one
+  schedule: one
+  lesson: one
 
 two:
   status: MyString
   title: MyString
   cost: 1
-  start: 2022-10-20 15:04:28
+  start: 2022-10-20 16:32:43
   cancellation_reason: MyText
   refunded: false
-  trainer_id: 1
-  schedule_id: 1
-  lesson_id: 1
-  account_id: 1
+  trainer: two
+  schedule: two
+  lesson: two

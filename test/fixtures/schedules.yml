@@ -2,14 +2,12 @@
 
 one:
   title: MyString
-  start: 2022-10-20 14:48:03
-  end: 2022-10-20 14:48:03
-  trainer_id: 1
-  account_id: 1
+  start: 2022-10-20 16:30:19
+  end: 2022-10-20 16:30:19
+  trainer: one
 
 two:
   title: MyString
-  start: 2022-10-20 14:48:03
-  end: 2022-10-20 14:48:03
-  trainer_id: 1
-  account_id: 1
+  start: 2022-10-20 16:30:19
+  end: 2022-10-20 16:30:19
+  trainer: two

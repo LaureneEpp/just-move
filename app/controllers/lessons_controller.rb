@@ -1,4 +1,4 @@
-class LessonsController < InheritedResources::Base
+class LessonsController < ApplicationController
     before_action :set_lesson, only: [:show]
 
   def index

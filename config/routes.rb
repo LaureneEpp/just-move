@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :lessons
+  resources :ideas, only: [:show, :index]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'static_pages#landing_page'

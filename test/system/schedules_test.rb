@@ -14,7 +14,6 @@ class SchedulesTest < ApplicationSystemTestCase
     visit schedules_url
     click_on "New schedule"
 
-    fill_in "Account", with: @schedule.account_id
     fill_in "End", with: @schedule.end
     fill_in "Start", with: @schedule.start
     fill_in "Title", with: @schedule.title
@@ -29,7 +28,6 @@ class SchedulesTest < ApplicationSystemTestCase
     visit schedule_url(@schedule)
     click_on "Edit this schedule", match: :first
 
-    fill_in "Account", with: @schedule.account_id
     fill_in "End", with: @schedule.end
     fill_in "Start", with: @schedule.start
     fill_in "Title", with: @schedule.title

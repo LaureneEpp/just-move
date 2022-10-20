@@ -1,4 +1,4 @@
-class LessonPaymentsController < InheritedResources::Base
+class LessonPaymentsController < ApplicationController
 
   private
 

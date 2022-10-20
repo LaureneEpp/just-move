@@ -14,7 +14,6 @@ class TrainersTest < ApplicationSystemTestCase
     visit trainers_url
     click_on "New trainer"
 
-    fill_in "Account", with: @trainer.account_id
     fill_in "Bio", with: @trainer.bio
     fill_in "Experience", with: @trainer.experience
     fill_in "First name", with: @trainer.first_name
@@ -31,7 +30,6 @@ class TrainersTest < ApplicationSystemTestCase
     visit trainer_url(@trainer)
     click_on "Edit this trainer", match: :first
 
-    fill_in "Account", with: @trainer.account_id
     fill_in "Bio", with: @trainer.bio
     fill_in "Experience", with: @trainer.experience
     fill_in "First name", with: @trainer.first_name

@@ -1,37 +1,39 @@
 <div id="<%= dom_id lesson %>">
-  <p>
-    <strong>Title:</strong>
-    <%= lesson.title %>
-  </p>
+  <% @lessons.each do |lessons| %>
+    <p>
+      <strong>Title:</strong>
+      <%= lesson.title %>
+    </p>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= lesson.duration %>
-  </p>
+    <p>
+      <strong>Duration:</strong>
+      <%= lesson.duration %>
+    </p>
 
-  <p>
-    <strong>Cost:</strong>
-    <%= lesson.cost %>
-  </p>
+    <p>
+      <strong>Cost:</strong>
+      <%= lesson.cost %>
+    </p>
 
-  <p>
-    <strong>Category:</strong>
-    <%= lesson.category %>
-  </p>
+    <p>
+      <strong>Category:</strong>
+      <%= lesson.category %>
+    </p>
 
-  <p>
-    <strong>Language:</strong>
-    <%= lesson.language %>
-  </p>
+    <p>
+      <strong>Language:</strong>
+      <%= lesson.language %>
+    </p>
 
-  <p>
-    <strong>Level:</strong>
-    <%= lesson.level %>
-  </p>
+    <p>
+      <strong>Level:</strong>
+      <%= lesson.level %>
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= lesson.description %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= lesson.description %>
+    </p>
 
+  <% end %>
 </div>

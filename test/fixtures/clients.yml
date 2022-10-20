@@ -5,13 +5,11 @@ one:
   last_name: MyString
   phone: MyString
   bio: MyText
-  user_id: 1
-  account_id: 1
+  users: one
 
 two:
   first_name: MyString
   last_name: MyString
   phone: MyString
   bio: MyText
-  user_id: 1
-  account_id: 1
+  users: two

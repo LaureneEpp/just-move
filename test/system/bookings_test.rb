@@ -14,7 +14,6 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "New booking"
 
-    fill_in "Account", with: @booking.account_id
     fill_in "Cancellation reason", with: @booking.cancellation_reason
     fill_in "Cost", with: @booking.cost
     fill_in "Lesson", with: @booking.lesson_id
@@ -34,7 +33,6 @@ class BookingsTest < ApplicationSystemTestCase
     visit booking_url(@booking)
     click_on "Edit this booking", match: :first
 
-    fill_in "Account", with: @booking.account_id
     fill_in "Cancellation reason", with: @booking.cancellation_reason
     fill_in "Cost", with: @booking.cost
     fill_in "Lesson", with: @booking.lesson_id

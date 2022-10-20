@@ -10,40 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_20_202914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "accounts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
-
-  create_table "admin_users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
-  end
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
@@ -52,13 +21,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
     t.datetime "start"
     t.text "cancellation_reason"
     t.boolean "refunded"
-    t.integer "trainer_id"
-    t.integer "schedule_id"
-    t.integer "lesson_id"
-    t.integer "account_id"
+    t.bigint "trainer_id", null: false
+    t.bigint "schedule_id", null: false
+    t.bigint "lesson_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_bookings_on_account_id"
     t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
     t.index ["trainer_id"], name: "index_bookings_on_trainer_id"
@@ -69,26 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
     t.string "last_name"
     t.string "phone"
     t.text "bio"
-    t.integer "user_id"
-    t.integer "account_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_clients_on_account_id"
     t.index ["user_id"], name: "index_clients_on_user_id"
-  end
-
-  create_table "lesson_payments", force: :cascade do |t|
-    t.string "payment_number"
-    t.string "status"
-    t.date "date"
-    t.integer "cost"
-    t.string "service"
-    t.integer "booking_id"
-    t.integer "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_lesson_payments_on_account_id"
-    t.index ["booking_id"], name: "index_lesson_payments_on_booking_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -107,11 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
     t.string "title"
     t.datetime "start"
     t.datetime "end"
-    t.integer "trainer_id"
-    t.integer "account_id"
+    t.bigint "trainer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_schedules_on_account_id"
     t.index ["trainer_id"], name: "index_schedules_on_trainer_id"
   end
 
@@ -121,11 +70,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
     t.string "phone"
     t.text "bio"
     t.string "experience"
-    t.integer "user_id"
-    t.integer "account_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_trainers_on_account_id"
     t.index ["user_id"], name: "index_trainers_on_user_id"
   end
 
@@ -141,4 +88,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_20_130451) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "lessons"
+  add_foreign_key "bookings", "schedules"
+  add_foreign_key "bookings", "trainers"
+  add_foreign_key "clients", "users"
+  add_foreign_key "schedules", "trainers"
+  add_foreign_key "trainers", "users"
 end

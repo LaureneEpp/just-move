@@ -17,7 +17,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create booking" do
     assert_difference("Booking.count") do
-      post bookings_url, params: { booking: { account_id: @booking.account_id, cancellation_reason: @booking.cancellation_reason, cost: @booking.cost, lesson_id: @booking.lesson_id, refunded: @booking.refunded, schedule_id: @booking.schedule_id, start: @booking.start, status: @booking.status, title: @booking.title, trainer_id: @booking.trainer_id } }
+      post bookings_url, params: { booking: { cancellation_reason: @booking.cancellation_reason, cost: @booking.cost, lesson_id: @booking.lesson_id, refunded: @booking.refunded, schedule_id: @booking.schedule_id, start: @booking.start, status: @booking.status, title: @booking.title, trainer_id: @booking.trainer_id } }
     end
 
     assert_redirected_to booking_url(Booking.last)
@@ -34,7 +34,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update booking" do
-    patch booking_url(@booking), params: { booking: { account_id: @booking.account_id, cancellation_reason: @booking.cancellation_reason, cost: @booking.cost, lesson_id: @booking.lesson_id, refunded: @booking.refunded, schedule_id: @booking.schedule_id, start: @booking.start, status: @booking.status, title: @booking.title, trainer_id: @booking.trainer_id } }
+    patch booking_url(@booking), params: { booking: { cancellation_reason: @booking.cancellation_reason, cost: @booking.cost, lesson_id: @booking.lesson_id, refunded: @booking.refunded, schedule_id: @booking.schedule_id, start: @booking.start, status: @booking.status, title: @booking.title, trainer_id: @booking.trainer_id } }
     assert_redirected_to booking_url(@booking)
   end
 

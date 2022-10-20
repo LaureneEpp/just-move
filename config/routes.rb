@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :clients
+  resources :trainers
   resources :lessons
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

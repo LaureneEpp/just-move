@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: just_move_production
   username: just_move
   password: <%= ENV["JUST_MOVE_DATABASE_PASSWORD"] %>

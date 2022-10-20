@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :ideas, only: [:show, :index]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'static_pages#landing_page'
@@ -10,6 +9,8 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
   devise_for :users
+  resources :lessons, only: [:show, :index]
+  resources :trainers, :clients, :schedules, :accounts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

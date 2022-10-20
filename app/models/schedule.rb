@@ -1,7 +1,6 @@
 class Schedule < ApplicationRecord
     belongs_to :trainer, inverse_of: :schedules
     accepts_nested_attributes_for :trainer
-
     has_many :bookings, inverse_of: :schedule
     accepts_nested_attributes_for :bookings
 

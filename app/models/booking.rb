@@ -19,4 +19,5 @@ trai
   accepts_nested_attributes_for :lesson_payments
 
   validates :schedule, presence: true
+  validates :status, :cost, :start, presence: true
 end

@@ -14,20 +14,20 @@ ActiveAdmin.register Lesson do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  show do
-      attributes_table(:body, :created_at)
+  # show do
+  #     attributes_table(:body, :created_at)
 
-      panel I18n.t('active_admin.posts.new_comments') do
-        table_for resource.comments.order(created_at: :desc).first(10) do
-          column(:title)
-          column(:category)
-          column(:level)
-          column(:description)
-          column(:language)
-          column(:duration)
-          column(:cost)
-        end
-      end
-    end
+  #     panel I18n.t('active_admin.posts.new_comments') do
+  #       table_for resource.comments.order(created_at: :desc).first(10) do
+  #         column(:title)
+  #         column(:category)
+  #         column(:level)
+  #         column(:description)
+  #         column(:language)
+  #         column(:duration)
+  #         column(:cost)
+  #       end
+  #     end
+  #   end
   
 end

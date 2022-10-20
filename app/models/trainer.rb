@@ -1,16 +1,15 @@
 class Trainer < ApplicationRecord
     belongs_to :user, inverse_of: :trainers
     accepts_nested_attributes_for :user
-
     has_many :bookings, dependent: :destroy, inverse_of: :trainer
     accepts_nested_attributes_for :bookings
-
     has_many :lessons, through: :bookings
-
     has_many :lesson_payments, inverse_of: :bookings
-
     has_many :schedules, dependent: :destroy, inverse_of: :trainer
     accepts_nested_attributes_for :schedules
+
+    validates :first_name, :last_name, :bio, :experience, presence: true
+    validates :bio, :experience, length: { maximum: 50 }
 
     def name
       "#{first_name} #{last_name}"

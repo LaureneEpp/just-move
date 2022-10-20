@@ -15,8 +15,13 @@ Rails.application.routes.draw do
   #   registrations: 'users/registrations',
   #   sessions: 'users/sessions'
   # }
+
+  resources :lesson_payments
+  resources :bookings
+  resources :schedules
+  resources :clients
+  resources :trainers
   resources :lessons, only: [:show, :index]
-  # resources :trainers, :clients, :schedules, :accounts, :bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

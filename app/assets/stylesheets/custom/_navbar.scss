@@ -1,3 +1,9 @@
 .navbar {
   background-color: $oxford-blue;
+
+  a { color: $orange-web;}
+
+  .dropdown-menu {
+    background-color: $oxford-blue;
+  }
 }

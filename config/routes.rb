@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :lessons
+      root to: "lessons#index"
+    end
 
   root 'static_pages#landing_page'
 
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
 
   # resources :lesson_payments
 
-  resources :lessons
+  resources :lessons, only: [:show, :index]
   resources :trainers, :clients,:schedules,:bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

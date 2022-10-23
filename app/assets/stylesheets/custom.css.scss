@@ -1,11 +1,6 @@
-// config: e.g colors, fonts, variables, mixins.
+// config: e.g colors, fonts, variables, mixins.// modules: e.g typography, icons, layout.custom: e.g forms, modals, tables, buttons;components:  e.g cards, sidebars, headers, footers.pages: affect design for individual pages
 @import 'config/variables';
-
-// modules: e.g typography, icons, layout,
-
-// custom: e.g forms, modals, tables, buttons, etc
-@import 'custom/navbar'
-// components:  e.g cards, sidebars, headers, footers.
-
-
-// pages: affect design for individual pages,
+@import 'components/cards';
+@import 'config/mixins';
+@import 'custom/navbar';
+@import 'modules/layouts';

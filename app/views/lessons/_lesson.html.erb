@@ -1,14 +1,13 @@
 <div id="<%= dom_id lesson %>">
   <div class="col">
-    <div class="card" style="width: 18rem">
+    <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= lesson.title %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+        <h5 class="card-title"> <%= link_to lesson.title, lesson_path(lesson) %></h5>
+<!--         <h6 class="card-subtitle mb-2 text-muted">Description</h6> -->
         <p class="card-text"><%= lesson.description %></p>
         <p>Category</p>
         <p><%= lesson.category %></p>
       </div>
-      <%= link_to "Show this lesson", lesson %>
     </div>
   </div>
 </div>

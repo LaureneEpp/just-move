@@ -7,7 +7,7 @@
       margin: 2rem;
       box-shadow: 5px 5px 5px 5px #000;
       opacity: $lightly-transparent;
-      display: flex;
+
 
       .card_content {
           padding: $spacing;
@@ -16,14 +16,18 @@
       .card_title {
           margin: 0;
           color: $black;
-          a {
-            text-decoration: none;
-          }
-
+          font-weight: bold;
       }
+
       .card_description {
           margin: 0;
           color: $black;
       }
   }
+
+  a:link {
+    text-decoration: none;
+    color: $black;
+  }
 }
+

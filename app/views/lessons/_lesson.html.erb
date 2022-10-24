@@ -1,12 +1,10 @@
 <div id="<%= dom_id lesson %>">
   <div class="col">
-    <div class="card">
+    <div class="card d-flex flex-column align-items-start justify-content-evenly">
       <div class="card-body">
-        <h5 class="card-title"> <%= link_to lesson.title, lesson_path(lesson) %></h5>
-<!--         <h6 class="card-subtitle mb-2 text-muted">Description</h6> -->
-        <p class="card-text"><%= lesson.description %></p>
-        <p>Category</p>
-        <p><%= lesson.category %></p>
+        <h5 class="card-title fw-semibold"> <%= link_to lesson.title.upcase, lesson_path(lesson) %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= lesson.description %></h6>
+        <h6  class="card-text"><%= lesson.category %></h6>
       </div>
     </div>
   </div>

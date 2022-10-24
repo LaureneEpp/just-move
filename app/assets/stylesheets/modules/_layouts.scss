@@ -13,5 +13,11 @@ html {
   display: flex;
   flex-direction: column;
   font-family: $georgia;
+  color: $cornsilk;
   }
+}
+
+h1 {
+  font-weight: lighter;
+  letter-spacing: 6px;
 }

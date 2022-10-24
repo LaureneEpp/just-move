@@ -8,9 +8,9 @@
       box-shadow: 5px 5px 5px 5px #000;
       opacity: $lightly-transparent;
 
-
       .card_content {
-          padding: $spacing;
+        padding: $spacing;
+        color: $black;
       }
 
       .card_title {

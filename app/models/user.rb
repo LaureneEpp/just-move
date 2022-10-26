@@ -4,10 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :trainers, dependent: :destroy, inverse_of: :user
-  accepts_nested_attributes_for :trainers
-  has_many :clients, dependent: :destroy, inverse_of: :user
-  accepts_nested_attributes_for :clients
+  has_one :trainer, dependent: :destroy
+  has_one :client, dependent: :destroy
 
   validates :email, presence: true, format: { with: /\A([^\}\{\]\[@\s\,]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 end

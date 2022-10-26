@@ -1,23 +1,19 @@
 Rails.application.routes.draw do
+  # get 'users/index'
   namespace :admin do
       resources :lessons
       root to: "lessons#index"
     end
 
   root 'static_pages#landing_page'
-
   get 'static_pages/dashboard'
-  devise_scope :user do
-    # Redirests signing out users back to sign-in
-    get "users", to: "devise/sessions#new"
-  end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
-  # devise_for :users, controllers: {
-  #   registrations: 'users/registrations',
-  #   sessions: 'users/sessions'
-  # }
+resources :users
 
   # resources :lesson_payments
 

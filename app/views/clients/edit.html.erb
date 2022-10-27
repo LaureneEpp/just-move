@@ -1,6 +1,7 @@
-<h1>Editing your profile</h1>
-<%= render "form", client: @client %>
-<br>
-<div>
+<div class="container">
+  <h1>Editing your profile</h1>
+  <%= turbo_frame_tag @client do %>
+    <%= render "form", client: @client %>
+  <% end -%>
   <%= link_to "Back", root_path %>
 </div>

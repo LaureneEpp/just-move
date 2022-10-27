@@ -45,12 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
 
-  # def create_client_profile
-  #   @client = Client.new()
-  #   @client.user_id = @user.id
-  #   @client.save
-  # end
-
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])

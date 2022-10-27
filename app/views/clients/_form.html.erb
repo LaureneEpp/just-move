@@ -1,15 +1,16 @@
 <div class="container">
-  <%= simple_form_for @client do |f| %>
-  <div class="form-inputs">
-    <%= f.input :user_id, as: :hidden, value: current_user.id %>
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true, autofocus: true %>
-    <%= f.input :phone, required: false, autofocus: true %>
-    <%= f.input :bio, required: false, autofocus: true %>
+  <div class="form-profile">
+    <%= simple_form_for @client, html: { class: "client form" } do |f| %>
+    <div class="form-inputs">
+      <%= f.input :user_id, as: :hidden, value: current_user.id %>
+      <%= f.input :first_name, required: true, autofocus: true %>
+      <%= f.input :last_name, required: true, autofocus: true %>
+      <%= f.input :phone, required: false, autofocus: true %>
+      <%= f.input :bio, required: false, autofocus: true %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-outline-light mt-4" %>
+    </div>
+    <% end %>
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, class:"btn btn-primary" %>
-  </div>
-  <% end %>
 </div>
-

@@ -1,15 +1,28 @@
-<div class="container">
-  <div class="profile-title">
-    <h1>Your profile</h1>
-  </div>
-  <div class="profile-information">
-    <h2><%= current_user.client.first_name %></h2>
-    <h2><%= current_user.client.last_name %></h2>
-    <h2><%= current_user.client.bio %></h2>
-  </div>
-  <div class="profile-actions">
-    <%= link_to "Edit your profile", edit_client_path(@client) %> |
-    <%= link_to "Back", root_path %>
-  </div>
-</div>
+<div class="container mt-5">
+  <%= turbo_frame_tag @client do %>
+    <div class="row d-flex align-items-center justify-content-center ">
+      <div class="col-md-7">
+        <div class="card-profile p-3 py-4">
+          <div class="text-center">
+            <img src="https://i.imgur.com/bDLhJiP.jpg" width="100" class="rounded-circle">
+          </div>
+          <div class="text-center mt-3">
+            <div class="profile-title">
+              <span class="p-1 px-4 rounded fs-4">Profile</span>
+            </div>
+            <h5 class="mt-2 mb-0 fs-4"><%= @client.name %></h5>
+            <span class="fs-6"><%= @client.phone %></span>
 
+            <div class="px-4 mt-1">
+              <p class="fs-5"><%= @client.bio %></p>
+            </div>
+            <div class="buttons">
+              <%= link_to "Back", root_path , class:"btn btn-outline-dark"%>
+              <%= link_to "Edit your profile", edit_client_path(@client), class:"btn btn-outline-light" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+</div>

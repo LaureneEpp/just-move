@@ -11,15 +11,13 @@ class ClientsController < ApplicationController
   end
 
   def update
-    current_user.client.update(client_params)
-    if @client.save
-      respond_to do |format|
-        format.html { redirect_to client_path(@client), notice: "Your profile have been updated" }
-        format.turbo_stream
-      end
+    respond_to do |format|
+      if @client.update(client_params)
+        format.html { redirect_to @client }
       else
-        render :edit, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
       end
+    end
     current_user.update(first_name: current_user.client.first_name, last_name: current_user.client.last_name)
   end
 
@@ -27,7 +25,6 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-    # @client = current_user.client
   end
 
   def client_params

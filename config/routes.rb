@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-resources :users
+  resources :users, only: [:show, :index]
 
   # resources :lesson_payments
 

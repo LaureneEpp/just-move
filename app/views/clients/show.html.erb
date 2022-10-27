@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @client %>
-
-<div>
-  <%= link_to "Edit this client", edit_client_path(@client) %> |
-  <%= link_to "Back to clients", clients_path %>
-
-  <%= button_to "Destroy this client", @client, method: :delete %>
+<div class="container">
+  <div class="profile-title">
+    <h1>Your profile</h1>
+  </div>
+  <div class="profile-information">
+    <h2><%= current_user.client.first_name %></h2>
+    <h2><%= current_user.client.last_name %></h2>
+    <h2><%= current_user.client.bio %></h2>
+  </div>
+  <div class="profile-actions">
+    <%= link_to "Edit your profile", edit_client_path(@client) %> |
+    <%= link_to "Back", root_path %>
+  </div>
 </div>
+

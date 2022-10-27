@@ -1,42 +1,16 @@
-<%= form_with(model: client) do |form| %>
-  <% if client.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
-
-      <ul>
-        <% client.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+  <div class="form-profile">
+    <%= simple_form_for @client, html: { class: "client form" } do |f| %>
+    <div class="form-inputs">
+      <%= f.input :user_id, as: :hidden, value: current_user.id %>
+      <%= f.input :first_name, required: true, autofocus: true %>
+      <%= f.input :last_name, required: true, autofocus: true %>
+      <%= f.input :phone, required: false, autofocus: true %>
+      <%= f.input :bio, required: false, autofocus: true %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-outline-light mt-4" %>
+    </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div>
-    <%= form.label :bio, style: "display: block" %>
-    <%= form.text_area :bio %>
-  </div>
-
-  <div>
-    <%= form.label :users_id, style: "display: block" %>
-    <%= form.text_field :users_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

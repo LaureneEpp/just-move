@@ -2,6 +2,7 @@
 
   .card {
       background-color: $orange-web;
+      color: $cornsilk;
       width: 20rem;
       overflow: hidden;
       margin: 2rem;
@@ -31,3 +32,22 @@
   }
 }
 
+.card-profile {
+  border:none;
+  background-color: $orange-web;
+  opacity: $lightly-transparent;
+  position:relative;
+  overflow:hidden;
+  border-radius:8px;
+  cursor:pointer;
+
+  .profile-title {
+    span {
+      background-color: $oxford-blue;
+    }
+
+
+  }
+
+
+}

@@ -1,11 +1,13 @@
 class Client < ApplicationRecord
-  belongs_to :user, inverse_of:  :clients, optional: true
+  # belongs_to :user, inverse_of:  :clients, optional: true
+  # accepts_nested_attributes_for :user
+  belongs_to :user, dependent: :destroy, optional: true
   accepts_nested_attributes_for :user
   has_many :bookings, dependent: :destroy, inverse_of: :client
   accepts_nested_attributes_for :bookings
   has_many :lessons, through: :bookings
 
-  validates :first_name, :last_name, :bio, presence: true
+  validates :first_name, :last_name, presence: true
   validates :bio, length: { maximum: 50 }
 
   def name

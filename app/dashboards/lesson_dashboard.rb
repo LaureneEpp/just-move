@@ -43,15 +43,15 @@ class LessonDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    bookings
+    title
     category
-    clients
-    cost
     description
     duration
-    language
+    cost
     level
-    title
+    language
+    bookings
+    clients
     trainers
     created_at
     updated_at

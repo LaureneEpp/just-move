@@ -8,8 +8,6 @@ class LessonsController < ApplicationController
   def show
   end
 
-
-
   private
 
   def set_lesson

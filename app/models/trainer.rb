@@ -9,7 +9,7 @@ class Trainer < ApplicationRecord
     has_many :schedules, dependent: :destroy, inverse_of: :trainer
     accepts_nested_attributes_for :schedules
 
-    validates :first_name, :last_name, :bio, :experience, presence: true
+    validates :first_name, :last_name, presence: true
     validates :bio, :experience, length: { maximum: 50 }
 
     def name

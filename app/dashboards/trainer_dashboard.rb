@@ -30,23 +30,23 @@ class TrainerDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     bio
-    bookings
     experience
+    bookings
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    bio
-    bookings
-    experience
     first_name
     last_name
-    lessons
     phone
-    schedules
     user
+    bio
+    experience
+    schedules
+    bookings
+    lessons
     created_at
     updated_at
   ].freeze

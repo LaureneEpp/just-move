@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/dashboard'
   namespace :admin do
       resources :lessons
+      # resources :trainers
       root to: "lessons#index"
     end
 
@@ -20,7 +21,8 @@ Rails.application.routes.draw do
 
   resources :lessons, only: [:show, :index]
   resources :clients, only: [:show, :edit, :update]
-  resources :trainers, :schedules, :bookings
+  resources :trainers, only: [:show, :edit, :update]
+  resources :schedules, :bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -2,9 +2,19 @@ class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update]
 
   def show
+    @schedules = Schedule.where(trainer_id: current_user.trainer)
+    @schedule = Schedule.new
   end
 
   def create
+    respond_to do |format|
+      if @trainer.create(trainer_params)
+        format.html { redirect_to @trainer }
+        format.turbo_stream
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit

@@ -1,9 +1,10 @@
-<h1>New schedule</h1>
-
-<%= render "form", schedule: @schedule %>
-
-<br>
-
-<div>
-  <%= link_to "Back to schedules", schedules_path %>
+<div class="container">
+  <div class="d-flex align-items-center justify-content-center my-4">
+    <h2>New schedule</h2>
+  </div>
+  <%= render "form", schedule: @schedule %>
+  <div class="actions d-flex align-items-center justify-content-center my-4">
+    <%= link_to "Back to schedules", schedules_path, class:"btn btn-outline-dark" %>
+  </div>
 </div>
+

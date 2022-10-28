@@ -1,37 +1,14 @@
-<%= form_with(model: schedule) do |form| %>
-  <% if schedule.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
-
-      <ul>
-        <% schedule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+  <div class="form-schedule">
+    <%= simple_form_for @schedule do |f| %>
+    <div class="form-inputs">
+      <%= f.input :trainer_id, as: :hidden, value: @trainer.id %>
+      <%= f.input :title %>
+      <%= f.input :start, as: :date %>
+      <%= f.input :end, as: :date %>
+    <div class="form-actions">
+      <%= f.button :submit, class:"btn btn-outline-light mt-4" %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <% end -%>
   </div>
-
-  <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.datetime_field :start %>
-  </div>
-
-  <div>
-    <%= form.label :end, style: "display: block" %>
-    <%= form.datetime_field :end %>
-  </div>
-
-  <div>
-    <%= form.label :trainer_id, style: "display: block" %>
-    <%= form.text_field :trainer_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

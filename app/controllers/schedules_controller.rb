@@ -16,20 +16,34 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.trainer = current_user.trainer
+
     if @schedule.save
-      redirect_to schedule_path(@schedule)
+      respond_to do |format|
+        format.html { redirect_to schedule_path(@schedule), notice: "New schedule was created." }
+        format.turbo_stream
+      end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
+
+  # def create
+  #   @schedule = Schedule.new(schedule_params)
+  #   @schedule.trainer = current_user.trainer
+  #   if @schedule.save
+  #     redirect_to schedule_path(@schedule)
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def edit
   end
 
-  def update
-    @schedule.update(schedule_params)
-    redirect_to schedule_path(@schedule)
-  end
+  # def update
+  #   @schedule.update(schedule_params)
+  #   redirect_to schedule_path(@schedule)
+  # end
 
   def destroy
     @schedule.destroy

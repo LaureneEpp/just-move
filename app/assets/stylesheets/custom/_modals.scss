@@ -1,0 +1,17 @@
+#modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  width: 300px;
+  word-break: break-word;
+  border-radius: 6px;
+  background-color: $davys-grey;
+  opacity: $almost-opaque;
+
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

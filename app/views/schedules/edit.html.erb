@@ -1,10 +1,5 @@
-<h1>Editing schedule</h1>
-
-<%= render "form", schedule: @schedule %>
-
-<br>
-
-<div>
-  <%= link_to "Show this schedule", @schedule %> |
-  <%= link_to "Back to schedules", schedules_path %>
+<%= turbo_frame_tag "modal" do %>
+<div class="container">
+    <%= render "form", schedule: @schedule  %>
 </div>
+<% end %>

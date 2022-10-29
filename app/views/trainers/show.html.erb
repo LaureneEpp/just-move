@@ -19,8 +19,9 @@
             </div>
             <div class="buttons">
               <%= link_to "Back", root_path , class:"btn btn-outline-dark"%>
-              <%= link_to "Edit your profile", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
-              <%= link_to "New schedule", new_schedule_path, class:"btn btn-primary" %>
+              <%= link_to "Edit", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
+
+              <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold", data: { turbo_frame: "modal" }  %>
             </div>
           </div>
         </div>

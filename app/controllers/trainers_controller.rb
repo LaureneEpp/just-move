@@ -31,6 +31,10 @@ class TrainersController < ApplicationController
     current_user.update(first_name: current_user.client.first_name, last_name: current_user.client.last_name)
   end
 
+  def list_schedules
+    @trainer_schedules = Schedule.where(trainer_id: current_user.trainer)
+  end
+
   private
 
   def set_trainer
@@ -40,7 +44,6 @@ class TrainersController < ApplicationController
   def trainer_params
     params.require(:trainer).permit(:first_name, :last_name, :phone, :bio, :experience, :user_id)
   end
-
 end
 
 

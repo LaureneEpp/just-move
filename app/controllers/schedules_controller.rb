@@ -27,16 +27,6 @@ class SchedulesController < ApplicationController
     end
   end
 
-  # def create
-  #   @schedule = Schedule.new(schedule_params)
-  #   @schedule.trainer = current_user.trainer
-  #   if @schedule.save
-  #     redirect_to schedule_path(@schedule)
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def edit
   end
 

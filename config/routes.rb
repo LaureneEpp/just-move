@@ -21,18 +21,15 @@ Rails.application.routes.draw do
 
   resources :lessons, only: [:show, :index]
   resources :clients, only: [:show, :edit, :update]
-  resources :trainers, only: [:show, :edit, :update]
-  resources :schedules do
-    member do
-      post :edit
+  resources :trainers, only: [:show, :edit, :update] do
+    collection do
+      get 'list_schedules'
+    end
   end
-  end
+  resources :schedules
 
   resources :bookings
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 
 end
+

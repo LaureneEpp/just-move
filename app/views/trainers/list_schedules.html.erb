@@ -1,0 +1,24 @@
+<%= turbo_frame_tag "schedules" do %>
+  <div id="schedules-index">
+    <table class="table table-hover table-bordered mt-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @trainer_schedules.each do |schedule| %>
+        <tr>
+          <th scope="row"><%= schedule.id %></th>
+          <td><%= schedule.title %></td>
+          <td><%= schedule.start %></td>
+          <td><%= schedule.end %></td>
+        </tr>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+<% end -%>

@@ -19,7 +19,18 @@
             </div>
             <div class="buttons">
               <%= link_to "Back", root_path , class:"btn btn-outline-dark"%>
-              <%= link_to "Edit your profile", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
+              <%= link_to "Edit", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
+
+              <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold", data: { turbo_frame: "modal" }  %>
+            </div>
+            <%= turbo_frame_tag "schedules" do %>
+            <div id="schedules-index">
+              <div class="my-5">
+                <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
+              </div>
+            </div>
+            <% end -%>
+            <div>
             </div>
           </div>
         </div>

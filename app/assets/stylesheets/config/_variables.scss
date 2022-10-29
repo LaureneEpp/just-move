@@ -9,10 +9,22 @@ $orange-web: #fca311;
 $white: #ffffff;
 $body-color: #14213d;
 
+// FONTS
+$font-weight-lighter:         lighter;
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-semibold:        600;
+$font-weight-bold:            700;
+$font-weight-bolder:          bolder;
+
+$font-weight-base:            $font-weight-normal;
+
 // OPACITY
+$almost-opaque: 0.95;
 $lightly-transparent: 0.8;
 $opaque: 1;
 $transparent: 0/0;
 
 // SPACING
 $spacing: 2rem;
+

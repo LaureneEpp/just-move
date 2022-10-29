@@ -4,8 +4,9 @@
     <div class="form-inputs">
       <%= f.input :trainer_id, as: :hidden, value: @trainer.id %>
       <%= f.input :title %>
-      <%= f.input :start, as: :date %>
-      <%= f.input :end, as: :date %>
+      <%= f.input :date %>
+      <%= f.input :start, as: :time %>
+      <%= f.input :end, as: :time %>
     </div>
     <div class="form-actions">
       <%= link_to "Cancel", trainer_path(@trainer), class:'btn btn-outline-danger mt-4' %>

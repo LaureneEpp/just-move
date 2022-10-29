@@ -3,7 +3,7 @@
     <%= simple_form_for @schedule do |f| %>
     <div class="form-inputs">
       <%= f.input :trainer_id, as: :hidden, value: @trainer.id %>
-      <%= f.input :title %>
+      <%= f.association :lesson, collection: Lesson.order(:title), prompt: "Choose a lesson" %>
       <%= f.input :date %>
       <%= f.input :start, as: :time %>
       <%= f.input :end, as: :time %>

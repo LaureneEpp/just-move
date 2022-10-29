@@ -14,7 +14,7 @@
         <% @trainer_schedules.each do |schedule| %>
         <tr>
           <th scope="row"><%= schedule.id %></th>
-          <td><%= schedule.title %></td>
+          <td><%= schedule.lesson.title %></td>
           <td><%= schedule.date.strftime("%d/%m/%Y") %></td>
           <td><%= schedule.start.strftime("%k:%M")  %></td>
           <td><%= schedule.end.strftime("%k:%M") %></td>

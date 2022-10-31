@@ -2,14 +2,13 @@
   <div class="form-schedule my-4">
     <%= simple_form_for @schedule do |f| %>
     <div class="form-inputs">
-      <%= f.input :trainer_id, as: :hidden, value: @trainer.id %>
-      <%= f.association :lesson, collection: Lesson.order(:title), prompt: "Choose a lesson" %>
-      <%= f.input :date %>
-      <%= f.input :start, as: :time %>
-      <%= f.input :end, as: :time %>
+      <%= f.input :trainer_id, as: :hidden, value: current_user.trainer.id %>
+      <%=f.collection_select :lesson_id, Lesson.all, :id, :title %>
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
     </div>
     <div class="form-actions">
-      <%= link_to "Cancel", trainer_path(@trainer), class:'btn btn-outline-danger mt-4' %>
+      <%= link_to "Cancel", trainer_path(current_user.trainer), class:'btn btn-outline-danger mt-4' %>
       <%= f.submit 'Add', class:"btn btn-outline-light mt-4" %>
     </div>
     <% end %>

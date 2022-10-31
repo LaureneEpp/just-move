@@ -10,12 +10,12 @@ class SchedulesController < ApplicationController
 
   def new
     @schedule = Schedule.new
-    @trainer = current_user.trainer
   end
 
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.trainer = current_user.trainer
+    lesson_id = params[:lesson_id]
 
     if @schedule.save
       respond_to do |format|
@@ -47,7 +47,6 @@ class SchedulesController < ApplicationController
     end
 
     def schedule_params
-      params.require(:schedule).permit(:date, :start, :end, :trainer_id, :lesson_id)
+      params.require(:schedule).permit(:start_time, :end_time, :trainer_id, :lesson_id)
     end
-
 end

@@ -1,0 +1,58 @@
+.simple-calendar {
+  table {
+    min-height: 80vh;
+    box-shadow: 5px 5px 5px 5px $black;
+
+    .prev-month {
+      background-color: $gainsboro;
+    }
+
+    .next-month {
+      background-color: $cadet-blue-crayola;
+    }
+    .current-month {
+      background-color: $light-gray;
+    }
+
+    .today {
+      background-color: $persian-green;
+    }
+
+    // .day {}
+
+    // .wday-0 {}
+    // .wday-1 {}
+    // .wday-2 {}
+    // .wday-3 {}
+    // .wday-4 {}
+    // .wday-5 {}
+    // .wday-6 {}
+
+    // .past {}
+    // .future {}
+
+    // .start-date {}
+
+
+    // .has-events {}
+  }
+
+  thead {
+    color: $cornsilk;
+    background-color: $davys-grey;
+  }
+
+}
+
+.schedule {
+  color: $cornsilk;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $persimmon;
+  transition: background 0.3s ease;
+}
+
+.schedule:hover {
+  background: $dark-red;
+  color: $cornsilk;
+}

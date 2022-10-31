@@ -1,21 +1,21 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_schedule, only: [ :edit, :update, :destroy]
 
-  def index
-    @schedules = Schedule.where(trainer_id: current_user.trainer)
-  end
+  # def index
+  #   @schedules = Schedule.where(trainer_id: current_user.trainer)
+  # end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
     @schedule = Schedule.new
-    @trainer = current_user.trainer
   end
 
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.trainer = current_user.trainer
+    lesson_id = params[:lesson_id]
 
     if @schedule.save
       respond_to do |format|
@@ -47,7 +47,6 @@ class SchedulesController < ApplicationController
     end
 
     def schedule_params
-      params.require(:schedule).permit(:title, :date, :start, :end, :trainer_id)
+      params.require(:schedule).permit(:start_time, :end_time, :trainer_id, :lesson_id)
     end
-
 end

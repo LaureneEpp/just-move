@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'list_schedules'
     end
   end
-  resources :schedules
+  resources :schedules, except: [:index, :show]
 
   resources :bookings
 

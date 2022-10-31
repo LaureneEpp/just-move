@@ -1,6 +1,7 @@
 // config: e.g colors, fonts, variables, mixins.// modules: e.g typography, icons, layout.custom: e.g forms, modals, tables, buttons;components:  e.g cards, sidebars, headers, footers.pages: affect design for individual pages
 @import 'config/variables';
 @import 'components/cards';
+@import 'components/calendar';
 @import 'config/mixins';
 @import 'custom/buttons';
 @import 'custom/forms';
@@ -10,4 +11,4 @@
 @import 'modules/typography';
 @import 'modules/layouts';
 
-
+@import "simple_calendar";

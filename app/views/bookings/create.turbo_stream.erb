@@ -1,0 +1,8 @@
+<%# Step 1: remove the form from the Quotes#index page %>
+<%= turbo_stream.update Booking.new, "" %>
+<%= turbo_stream.prepend "bookings" do %>
+<%= render @booking, schedule: @schedule %>
+<% end %>
+
+
+<%= render_turbo_stream_flash_messages %>

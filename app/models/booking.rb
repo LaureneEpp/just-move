@@ -1,16 +1,28 @@
 class Booking < ApplicationRecord
-  belongs_to :lesson, inverse_of:  :bookings, optional: true
+  # belongs_to :lesson, inverse_of:  :bookings, optional: true
+  # accepts_nested_attributes_for :lesson
+
+  # belongs_to :schedule, inverse_of:  :bookings, optional: true
+  # accepts_nested_attributes_for :schedule
+
+  # belongs_to :trainer, inverse_of: :bookings, optional: true
+  # accepts_nested_attributes_for :trainer
+
+  # belongs_to :client, inverse_of:  :bookings, optional: true
+  # accepts_nested_attributes_for :client
+
+  belongs_to :lesson
   accepts_nested_attributes_for :lesson
 
-  belongs_to :schedule, inverse_of:  :bookings, optional: true
+  belongs_to :schedule
   accepts_nested_attributes_for :schedule
 
-  belongs_to :trainer, inverse_of: :bookings, optional: true
+  belongs_to :trainer
   accepts_nested_attributes_for :trainer
 
-  belongs_to :client, inverse_of:  :bookings, optional: true
+  belongs_to :client
   accepts_nested_attributes_for :client
 
   # validates :schedule, presence: true
-  validates :status, :cost, :start, presence: true
+  # validates :status, :cost, :start, presence: true
 end

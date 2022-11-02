@@ -1,26 +1,17 @@
 <%= turbo_frame_tag "schedules" do %>
   <div id="schedules-index">
-    <table class="table table-hover table-bordered mt-4">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Date</th>
-          <th scope="col">Start</th>
-          <th scope="col">End</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @trainer_schedules.each do |schedule| %>
-        <tr>
-          <th scope="row"><%= schedule.id %></th>
-          <td><%= schedule.lesson.title %></td>
-          <td><%= schedule.start_time.strftime("%d/%m/%Y") %></td>
-          <td><%= schedule.start_time.strftime("%k:%M")  %></td>
-          <td><%= schedule.end_time.strftime("%k:%M") %></td>
-        </tr>
-        <% end -%>
-      </tbody>
-    </table>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+      <% @trainer_schedules.each do |schedule| %>
+        <div class="col">
+          <div class="trainer-schedule"></div>
+          <div class="p-3 border ">
+            <p class="lead mb-0"><%= schedule.lesson.title %></p>
+            <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>
+            <p class="mb-0"><%= schedule.start_time.strftime("%k:%M")  %></p>
+            <p class="mb-0"><%= schedule.end_time.strftime("%k:%M") %></p>
+          </div>
+        </div>
+      <% end -%>
+    </div>
   </div>
 <% end -%>

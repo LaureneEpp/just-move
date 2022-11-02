@@ -20,10 +20,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = @schedule.bookings.build
-    # @booking.client = current_user.client
-    @booking.schedule = @schedule
-    # @booking.trainer = @schedule.trainer
-    # @booking.lesson = @schedule.lesson
   end
 
   def create
@@ -36,8 +32,8 @@ class BookingsController < ApplicationController
 
     if @booking.save
       respond_to do |format|
-        format.html { redirect_to schedule_path(@schedule), notice: "Date was successfully created." }
-        format.turbo_stream { flash.now[:notice] = "Date was successfully created." }
+        format.html { redirect_to schedule_path(@schedule), notice: "Booking was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "Booking was successfully created." }
       end
     else
       render :new, status: :unprocessable_entity
@@ -45,42 +41,6 @@ class BookingsController < ApplicationController
     redirect_to schedule_path(@schedule)
   end
 
-
-  # def create
-  #   @booking = @schedule.bookings.build(booking_params)
-
-  #   if @booking.save
-  #     redirect_to schedules_path, notice: "Date was successfully created."
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
-
-  # def create
-  #   @booking = @schedule.bookings.new(booking_params)
-  #   @booking.schedule = @schedule
-  #   @booking.client = current_user.client
-  #   @booking.lesson = @schedule.lesson
-  #   @booking.trainer = @schedule.trainer
-  #   @booking.start = @schedule.start_time
-  #   if @booking.save
-  #     flash[:notice] = "Your booking has been counted!"
-  #     redirect_to yoga_class_path(@yoga_class), notice: "Your booking was sucessfully created!"
-  #   else
-  #     flash[:notice] = "There was an error saving your booking, please try again!"
-  #     render 'new'
-  #   end
-  # end
-
-
-  # def update
-  #   if @yoga_class.bookings.create(booking_params)
-  #     redirect_to yoga_class_booking_path, notice: "Your booking was successfully updated!"
-  #   else
-  #     render 'new'
-  #   end
-  # end
 
   def destroy
     @booking.destroy

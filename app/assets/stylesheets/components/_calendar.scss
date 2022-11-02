@@ -50,9 +50,19 @@
   border-radius: 4px;
   background: $persimmon;
   transition: background 0.3s ease;
-}
 
-.schedule:hover {
-  background: $dark-red;
-  color: $cornsilk;
+  &:hover {
+    background: $dark-red;
+
+  }
+
+  a {
+    text-decoration: none;
+    color: $cornsilk;
+
+    &:hover {
+      text-decoration: none;
+      color: $cornsilk;
+    }
+  }
 }

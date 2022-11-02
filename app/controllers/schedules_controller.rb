@@ -1,15 +1,17 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [ :edit, :update, :destroy]
+  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   # def index
   #   @schedules = Schedule.where(trainer_id: current_user.trainer)
   # end
 
-  # def show
-  # end
+  def show
+    @bookings = @schedule.bookings
+  end
 
   def new
     @schedule = Schedule.new
+    @booking = Booking.new
   end
 
   def create

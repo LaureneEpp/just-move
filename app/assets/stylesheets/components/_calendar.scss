@@ -51,13 +51,18 @@
   background: $persimmon;
   transition: background 0.3s ease;
 
+  &:hover {
+    background: $dark-red;
+
+  }
+
   a {
     text-decoration: none;
     color: $cornsilk;
-  }
-}
 
-.schedule:hover {
-  background: $dark-red;
-  color: $cornsilk;
+    &:hover {
+      text-decoration: none;
+      color: $cornsilk;
+    }
+  }
 }

@@ -3,13 +3,14 @@
      <div class="text-center my-5">
       <!--                <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." /> -->
       <h1 class= "fs-3 fw-bolder"><%= @schedule.lesson.title %></h1>
-      <p class="mb-0"><%= @schedule.lesson.category %></p>
+      <p class="mb-0"><%= @schedule.trainer.name %></p>
     </div>
   </div>
   <div class="schedule-content py-5">
       <div class="schedule-description">
         <h2>Description</h2>
         <p class="lead"><%= @schedule.lesson.description %></p>
+        <p class="mb-0"><%= @schedule.lesson.category %></p>
         <p class="mb-0"><%= @schedule.lesson.level %></p>
         <p class="mb-0">Duration: <%= @schedule.lesson.duration %>min</p>
         <p class="mb-0"><%= @schedule.lesson.cost %></p>

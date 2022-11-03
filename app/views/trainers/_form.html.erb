@@ -8,6 +8,7 @@
       <%= f.input :phone, required: false, autofocus: true %>
       <%= f.input :bio, required: false, autofocus: true %>
       <%= f.input :experience, required: false, autofocus: true %>
+      <%= f.input :image, as: :file, placeholder: 'Upload a picture', direct_upload: true %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, class:"btn btn-outline-light mt-4" %>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :trainers, only: [:show, :edit, :update] do
     collection do
       get 'list_schedules'
+      get 'list_bookings'
     end
   end
   # resources :schedules, except: [:index]

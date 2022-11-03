@@ -35,6 +35,10 @@ class TrainersController < ApplicationController
     @trainer_schedules = Schedule.where(trainer_id: current_user.trainer)
   end
 
+  def list_bookings
+    @trainer_bookings = Booking.where(trainer_id: current_user.trainer)
+  end
+
   private
 
   def set_trainer
@@ -42,7 +46,7 @@ class TrainersController < ApplicationController
   end
 
   def trainer_params
-    params.require(:trainer).permit(:first_name, :last_name, :phone, :bio, :experience, :user_id)
+    params.require(:trainer).permit(:first_name, :last_name, :phone, :bio, :experience, :user_id, :image)
   end
 end
 

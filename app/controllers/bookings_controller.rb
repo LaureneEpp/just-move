@@ -58,7 +58,7 @@ class BookingsController < ApplicationController
   end
 
     def booking_params
-      params.require(:booking).permit(:status, :title, :cost, :start, :cancellation_reason, :refunded, :trainer_id, :schedule_id, :lesson_id)
+      params.require(:booking).permit(:status, :title, :cost, :start, :cancellation_reason, :refunded, :trainer_id, :schedule_id, :lesson_id, :client_id)
     end
 end
 

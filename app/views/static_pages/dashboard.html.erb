@@ -1,2 +1,79 @@
-<h1>StaticPages#dashboard</h1>
-<p>Find me in app/views/static_pages/dashboard.html.erb</p>
+<!-- Header-->
+  <div id="dashboard">
+
+  <header class="masthead text-center">
+    <div class="masthead-content">
+      <div class="container px-5">
+        <h1 class="masthead-heading mb-0">Just Move</h1>
+        <h2 class="masthead-subheading mb-0">Schedule your own sporty agenda !</h2>
+        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  <!-- Content section 1-->
+  <section>
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6 order-lg-2">
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Have a look to our agenda !</h2>
+          </div>
+        </div>
+      </div>
+      <div id="schedule">
+        <%= month_calendar(events: @schedules, end_attribute: :end_time) do |date, schedules| %>
+          <%= date %>
+          <% schedules.each do |schedule| %>
+            <div class="schedule mt-3">
+              <p class="mb-1 fw-bold"><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
+              <small><%= schedule.time %></small>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <!-- Content section 2-->
+  <section id="scroll">
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5"><%= image_tag("trainer-default.jpeg", alt: "trainer", class:"img-fluid rounded-circle") %></div>
+
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Meet our trainers</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content section 3-->
+<!--   <section>
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5"><img class="img-fluid rounded-circle" src="assets/img/02.jpg" alt="..." /></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">We salute you!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  </div>
+
+

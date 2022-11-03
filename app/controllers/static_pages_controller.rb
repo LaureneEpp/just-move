@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing_page]
 
   def landing_page
+  end
+
+  def dashboard
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
 
@@ -10,9 +13,6 @@ class StaticPagesController < ApplicationController
 
     # Or, for a weekly view:
     @schedules = Schedule.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
-  end
-
-  def dashboard
   end
 
 end

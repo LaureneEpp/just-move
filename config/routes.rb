@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'static_pages#landing_page'
-  get 'static_pages/dashboard'
+  get 'static_pages/landing_page'
+  root 'static_pages#dashboard'
   namespace :admin do
       resources :lessons
       # resources :trainers

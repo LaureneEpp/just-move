@@ -1,2 +1,13 @@
-<h1>StaticPages#dashboard</h1>
-<p>Find me in app/views/static_pages/dashboard.html.erb</p>
+<div class="container">
+  <%= month_calendar(events: @schedules, end_attribute: :end_time) do |date, schedules| %>
+    <%= date %>
+
+    <% schedules.each do |schedule| %>
+      <div class="schedule mt-3">
+        <p class="mb-1 fw-bold"><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
+        <small><%= schedule.time %></small>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

@@ -19,12 +19,10 @@
           <%= simple_form_for [@schedule, Booking.new], html: { turbo: false } do |f| %>
             <%= f.input :lesson_id, as: :hidden, value: @schedule.lesson.id %>
             <%= f.input :trainer_id, as: :hidden, value: @schedule.trainer.id %>
+            <%= f.input :client_id, as: :hidden, value: current_user.client.id %>
             <%= f.input :start, as: :hidden, value: @schedule.start_time %>
             <%= f.submit 'Book this class', class:"btn btn-outline-light mt-4" %>
           <% end %>
-          <!--    <%= turbo_frame_tag "bookings" do %>
-              <%= render @bookings, schedule: @schedule %>
-              <% end %> -->
          </div>
      </div>
   </div>

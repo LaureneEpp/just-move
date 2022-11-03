@@ -24,15 +24,24 @@
 
               <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold", data: { turbo_frame: "modal" }  %>
             </div>
-            <%= turbo_frame_tag "schedules" do %>
-            <div id="schedules-index">
-              <div class="my-5">
-                <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
+            <div class="d-flex flex-column">
+              <%= turbo_frame_tag "list_schedules" do %>
+              <div id="schedules-index">
+                <div class="my-5">
+                  <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
+                </div>
               </div>
+              <% end -%>
+              <%= turbo_frame_tag "list_bookings" do %>
+              <div id="bookings-index">
+                <div class="my-5">
+                  <%= link_to "Your bookings", list_bookings_trainers_path(@trainers), class:"btn btn-outline-dark my-8"  %>
+                </div>
+              </div>
+              <% end -%>
+
             </div>
-            <% end -%>
-            <div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -35,6 +35,10 @@ class TrainersController < ApplicationController
     @trainer_schedules = Schedule.where(trainer_id: current_user.trainer)
   end
 
+  def list_bookings
+    @trainer_bookings = Booking.where(trainer_id: current_user.trainer)
+  end
+
   private
 
   def set_trainer

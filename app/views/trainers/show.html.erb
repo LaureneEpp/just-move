@@ -4,7 +4,11 @@
       <div class="col-md-7">
         <div class="card-profile p-3 py-4">
           <div class="text-center">
-            <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle")%>
+            <% if @trainer.image.present? %>
+              <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle")%>
+              <% else %>
+              <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '100x100', class:"img-fluid rounded-circle") %>
+            <% end %>
           </div>
           <div class="text-center mt-3">
             <div class="profile-title">

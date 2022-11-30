@@ -1,7 +1,7 @@
 <div id="schedule">
   <div class="schedule-header py-5 bg-image-full" style="background-image: url(<%= image_path "yoga-default02.jpeg"%>">
      <div class="text-center my-5">
-      <%= image_tag(@schedule.trainer.image_as_thumbnail, class:"img-fluid rounded-circle mb-4")%>
+      <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '200x200', class:"img-fluid rounded-circle") %>
       <h1 class= "fs-3 fw-bolder"><%= @schedule.lesson.title %></h1>
       <p class="mb-0"><%= @schedule.trainer.name %></p>
     </div>

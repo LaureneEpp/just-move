@@ -1,17 +1,18 @@
 class BookingsController < ApplicationController
   # before_action :set_schedule, only: [:new, :create, :update]
-  before_action :set_schedule
+  before_action :set_schedule, only: [:new, :create, :destroy]
   before_action :set_booking, only: [:destroy]
 
 
-  # def index
+  def index
   #   if params[:all]
   #     @bookings = Booking.all
   #   else
   #     @user = User.where("user_id = ?", current_user)
   #     @bookings = current_user.bookings
   #   end
-  # end
+    @bookings = Booking.where(client_id: current_user.client)
+  end
 
   # def show
   #   @booking = @schedule.bookings.new(booking_params)

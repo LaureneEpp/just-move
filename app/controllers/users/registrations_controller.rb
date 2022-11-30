@@ -6,7 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   include ApplicationHelper
   after_action :create_client_and_assign_to_current_user, only: [:create]
-  after_action :create_trainer_and_assign_to_current_user, only: [:create]
 
   # GET /resource/sign_up
   def new

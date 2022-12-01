@@ -7,5 +7,6 @@ let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
-import "trix"
-import "@rails/actiontext"
+// import "trix"
+// import "@rails/actiontext"
+

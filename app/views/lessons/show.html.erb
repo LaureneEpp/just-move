@@ -1,20 +1,18 @@
-
 <div id="lesson">
-    <div class="row gx-4 gx-lg-5 py-4">
-      <div class="d-flex justify-content-center">
-        <h1 class="fs-1 fw-bolder"><%= @lesson.title.upcase %></h1>
-      </div >
-      <div class="d-flex justify-content-center">
-        <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
-      </div>
-      <div class="d-flex justify-content-around fs-4 my-5">
-        <span><%= humanized_money_with_symbol(@lesson.price) %></span>
-        <span><%= @lesson.duration %> min</span>
-        <span><%= @lesson.level %></span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <p class="lead"><%= @lesson.description %></p>
-      </div>
+  <div class="row gx-4 gx-lg-5 py-4">
+    <div class="d-flex justify-content-center">
+      <h1 class="fs-1 fw-bolder"><%= @lesson.title.upcase %></h1>
+    </div >
+    <div class="d-flex justify-content-center">
+      <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
     </div>
-
+    <div class="d-flex justify-content-around fs-4 my-5">
+      <span><%= humanized_money_with_symbol(@lesson.price) %></span>
+      <span><%= @lesson.duration %> min</span>
+      <span>Level <%= @lesson.level %></span>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p class="lead"><%= @lesson.description %></p>
+    </div>
+  </div>
 </div>

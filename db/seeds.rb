@@ -26,12 +26,12 @@ Client.destroy_all
 
 # p "Created #{User.count} users"
 
-Lesson.create!(title: "lesson01", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
-Lesson.create!(title: "lesson02", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
-Lesson.create!(title: "lesson03", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
-Lesson.create!(title: "lesson04", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
-Lesson.create!(title: "lesson05", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
-Lesson.create!(title: "lesson06", duration: "60", cost:"10", category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson01", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson06", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson02", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson03", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson04", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
+Lesson.create!(title: "lesson05", duration: "60", price: 10, category: "1", level: 1, description: "abc", language: "EN")
 
 p "Created #{Lesson.count} lessons"
 

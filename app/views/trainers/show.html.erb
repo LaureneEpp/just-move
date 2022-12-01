@@ -6,7 +6,7 @@
           <div class="text-center">
             <% if @trainer.image.present? %>
               <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle")%>
-              <% else %>
+            <% else %>
               <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '100x100', class:"img-fluid rounded-circle") %>
             <% end %>
           </div>
@@ -16,7 +16,6 @@
             </div>
             <h5 class="mt-2 mb-0 fs-4"><%= @trainer.name %></h5>
             <span class="fs-6"><%= @trainer.phone %></span>
-
             <div class="px-4 mt-1">
               <p class="fs-5"><%= @trainer.bio %></p>
               <p class="fs-5"><%= @trainer.experience %></p>
@@ -24,26 +23,25 @@
             <div class="profil-buttons my-3">
               <%= link_to "Back", root_path , class:"btn btn-outline-dark"%>
               <%= link_to "Edit", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
-
-              <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold", data: { turbo_frame: "modal" }  %>
+              <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold js-modal", data: { turbo_frame: "modal" } %>
             </div>
             <div class="d-flex flex-column">
               <% if @trainer.schedules.present? %>
                 <%= turbo_frame_tag "list_schedules" do %>
-                <div id="schedules-index">
-                  <div class="mt-4 mb-2">
-                    <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
+                  <div id="schedules-index">
+                    <div class="mt-4 mb-2">
+                      <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
+                    </div>
                   </div>
-                </div>
                 <% end -%>
               <% end %>
               <% if @trainer.bookings.present? %>
                 <%= turbo_frame_tag "list_bookings" do %>
-                <div id="bookings-index">
-                  <div class="my-2">
-                    <%= link_to "Your bookings", list_bookings_trainers_path(@trainers), class:"btn btn-outline-dark my-8"  %>
+                  <div id="bookings-index">
+                    <div class="my-2">
+                      <%= link_to "Your bookings", list_bookings_trainers_path(@trainers), class:"btn btn-outline-dark my-8"  %>
+                    </div>
                   </div>
-                </div>
                 <% end -%>
               <% end %>
             </div>

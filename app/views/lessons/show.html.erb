@@ -1,15 +1,14 @@
-<div class="container px-4 px-lg-5 my-5">
-  <div class="d-flex align-items-center justify-content-center">
 
-    <div class="row gx-4 gx-lg-5 align-items-center border border-white py-4">
+<div id="lesson">
+    <div class="row gx-4 gx-lg-5 py-4">
       <div class="d-flex justify-content-center">
         <h1 class="fs-1 fw-bolder"><%= @lesson.title.upcase %></h1>
       </div >
       <div class="d-flex justify-content-center">
         <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
       </div>
-      <div class="d-flex justify-content-around fs-4 mb-5">
-        <span><%= @lesson.cost %>$</span>
+      <div class="d-flex justify-content-around fs-4 my-5">
+        <span><%= humanized_money_with_symbol(@lesson.price) %></span>
         <span><%= @lesson.duration %> min</span>
         <span><%= @lesson.level %></span>
       </div>
@@ -17,5 +16,5 @@
         <p class="lead"><%= @lesson.description %></p>
       </div>
     </div>
-  </div>
+
 </div>

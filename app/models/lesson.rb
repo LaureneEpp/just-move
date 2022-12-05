@@ -11,10 +11,4 @@ class Lesson < ApplicationRecord
   validates :title, :duration, :category, :language, :level, :description, presence: true
   validates :description, length: { maximum: 50 }
   monetize :price_cents
-
-    def liked?(client)
-      !!self.likes.find{|like| like.client_id == client.id}
-    end
-
-  
 end

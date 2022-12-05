@@ -9,15 +9,10 @@ class LessonsController < ApplicationController
   def show
   end
 
-  def like
-    Like.create!(client_id: current_user.client.id, lesson_id: @lesson.id)
-    redirect_to lesson_path(@lesson)
-  end
-
-  # def toggle_favorite
-  #   current_user.client.favorited?(@lesson) ? current_user.client.unfavorite(@lesson) : current_user.client.favorite(@lesson)
+  # def like
+  #   Like.create!(client_id: current_user.client.id, lesson_id: @lesson.id)
+  #   redirect_to lesson_path(@lesson)
   # end
-
   private
 
   def set_lesson

@@ -1,9 +1,18 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   client_id: one
   lesson_id: one
 
 two:
   client_id: two
   lesson_id: two
+=======
+  client: one
+  lesson: one
+
+two:
+  client: two
+  lesson: two
+>>>>>>> 32dad0a2b6d0c1426494527abb6c0b8182c9ffdc

@@ -6,8 +6,13 @@ class Client < ApplicationRecord
   has_many :bookings, dependent: :destroy, inverse_of: :client
   accepts_nested_attributes_for :bookings
   has_many :lessons, through: :bookings
+<<<<<<< HEAD
   has_many :likes, dependent: :destroy
   
+=======
+  has_many :likes
+
+>>>>>>> 32dad0a2b6d0c1426494527abb6c0b8182c9ffdc
   validates :first_name, :last_name, presence: true
   validates :bio, length: { maximum: 50 }
 

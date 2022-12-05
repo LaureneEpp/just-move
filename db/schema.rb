@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_12_02_144255) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_160740) do
+>>>>>>> 32dad0a2b6d0c1426494527abb6c0b8182c9ffdc
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -117,6 +121,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_144255) do
     t.bigint "lesson_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.index ["client_id", "lesson_id"], name: "index_likes_on_client_id_and_lesson_id", unique: true
+>>>>>>> 32dad0a2b6d0c1426494527abb6c0b8182c9ffdc
     t.index ["client_id"], name: "index_likes_on_client_id"
     t.index ["lesson_id"], name: "index_likes_on_lesson_id"
   end

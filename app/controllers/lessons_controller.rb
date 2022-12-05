@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
-    before_action :set_lesson, only: [:show]
+    before_action :set_lesson, only: [:like, :show]
+    # before_action :authenticate_user!, only: :toggle_favorite
 
   def index
     @lessons = Lesson.all
@@ -7,6 +8,15 @@ class LessonsController < ApplicationController
 
   def show
   end
+
+  def like
+    Like.create!(client_id: current_user.client.id, lesson_id: @lesson.id)
+    redirect_to lesson_path(@lesson)
+  end
+
+  # def toggle_favorite
+  #   current_user.client.favorited?(@lesson) ? current_user.client.unfavorite(@lesson) : current_user.client.favorite(@lesson)
+  # end
 
   private
 
@@ -17,5 +27,4 @@ class LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(:title, :duration, :cost, :category, :language, :level, :description)
   end
-
 end

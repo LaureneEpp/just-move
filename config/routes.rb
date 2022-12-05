@@ -19,7 +19,14 @@ Rails.application.routes.draw do
 
   # resources :lesson_payments
 
-  resources :lessons, only: [:show, :index]
+  resources :lessons, only: [:show, :index] 
+   post 'lessons/:id/like', to: 'lessons#like', as: 'like'
+  # resources :lessons, only: [:show, :index] do
+  #   member do 
+  #     post 'toggle_favorite', to: 'lessons#toggle_favorite'
+  #   end
+  # end
+
   resources :clients, only: [:show, :edit, :update]
   resources :trainers, only: [:show, :edit, :update] do
     collection do

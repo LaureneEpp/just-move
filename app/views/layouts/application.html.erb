@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body class="d-flex flex-column min-vh-100">
-<!--     <% if notice %>
+    <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
-    <% end %> -->
-      <%= render partial: 'shared/navbar' %>
-
-      <%= yield %>
-     <%= turbo_frame_tag "modal" %>
-
-      <%= render partial: 'shared/footer' %>
-
-      </div>
-  </body>
+    <% end %>
+    <%= render partial: 'shared/navbar' %>
+    <%= yield %>
+    <%= turbo_frame_tag "modal" %>
+    <%= render partial: 'shared/footer' %>
+  </div>
+</body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_142044) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_160740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,6 +94,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_142044) do
     t.integer "price_cents", default: 0, null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id", "lesson_id"], name: "index_likes_on_client_id_and_lesson_id", unique: true
+    t.index ["client_id"], name: "index_likes_on_client_id"
+    t.index ["lesson_id"], name: "index_likes_on_lesson_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.bigint "trainer_id", null: false
     t.datetime "created_at", null: false
@@ -138,6 +148,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_142044) do
   add_foreign_key "bookings", "schedules"
   add_foreign_key "bookings", "trainers"
   add_foreign_key "clients", "users"
+  add_foreign_key "likes", "clients"
+  add_foreign_key "likes", "lessons"
   add_foreign_key "schedules", "trainers"
   add_foreign_key "trainers", "users"
 end

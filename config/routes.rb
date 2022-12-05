@@ -9,17 +9,16 @@ Rails.application.routes.draw do
 
 
   # get 'users/profile'
-  # # get 'users/index'
+  # get 'users/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
 
   resources :users, only: [:show, :index]
-
   # resources :lesson_payments
-
   resources :lessons, only: [:show, :index]
+  resources :likes, only: [:create, :destroy]
   resources :clients, only: [:show, :edit, :update]
   resources :trainers, only: [:show, :edit, :update] do
     collection do

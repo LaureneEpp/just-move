@@ -11,5 +11,4 @@ class Lesson < ApplicationRecord
   validates :title, :duration, :category, :language, :level, :description, presence: true
   validates :description, length: { maximum: 50 }
   monetize :price_cents
-  
 end

@@ -3,4 +3,9 @@
     width: 50%;
     border: 3px solid $cornsilk;
     padding: 20px;
+
+    .container {
+        display: flex;
+        justify-content: center;
+      }
 }

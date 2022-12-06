@@ -6,10 +6,6 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    # @like = current_user.client.likes.find(params[:id])
-    # # @lesson = params[:lesson_id]
-    # @like.destroy
-    # redirect_to lesson
     @like = current_user.client.likes.find(params[:id])
     @lesson = params[:lesson_id]
     @like.destroy

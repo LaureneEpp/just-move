@@ -1,14 +1,15 @@
-<div class="py-5">
+<div class="wrapper">
   <div class="container">
-    <div class="d-flex justify-content-center">
-      <h1 class="fw-bold upcase">LESSONS</h1>
-    </div>
-    <div id="lessons">
-      <div class="row row-cols-1 row-cols-md-3 g-4" >
-        <% @lessons.each do |lesson| %>
-        <%= render lesson %>
-        <% end %>
+    <div class="row">
+      <div class="col text-center my-5">
+        <h1 class="display-4 w-bold ">LESSONS</h1>
       </div>
+    </div>
+    <div class="row">
+      <% @lessons.each do |lesson| %>
+        <%= render lesson %>
+      <% end %>
     </div>
   </div>
 </div>
+

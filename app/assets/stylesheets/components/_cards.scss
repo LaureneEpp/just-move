@@ -1,53 +1,77 @@
-#lessons {
+// Cards Lessons styling
+.wrapper {
+  padding: 5vh
+}
 
+div {
   .card {
-      background-color: $orange-web;
-      color: $cornsilk;
-      width: 20rem;
-      overflow: hidden;
-      margin: 2rem;
-      box-shadow: 5px 5px 5px 5px $black;
-      opacity: $lightly-transparent;
+    background: $orange-web;
+    color: $cornsilk;
+    opacity: $lightly-transparent;
+    border: none;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+    border-radius: 5px;
+    // min-height: 450px;
+    // box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 5px $black;
 
-      .card_content {
-        padding: $spacing;
-        color: $black;
-      }
+    @media (max-width: 768px) {
+      // min-height: 350px;
+    }
 
-      .card_title {
-          margin: 0;
-          color: $black;
+    @media (max-width: 420px) {
+      // min-height: 300px;
+    }
+
+    .card-footer {
+      background: none;
+      border-top: none;
+    }
+
+    .card-body {
+      transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+      padding: $spacing;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
           font-weight: bold;
+        }
+      }
+    }
+
+    &:hover {
+      .card-body {
+        margin-top: 30px;
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
       }
 
-      .card_description {
-          margin: 0;
-          color: $black;
-      }
-  }
+      cursor: pointer;
+      transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
 
-  a:link {
-    text-decoration: none;
-    color: $black;
   }
 }
 
+@media (max-width: 767px) {}
+
+
+// Profile Card styling
 .card-profile {
-  border:none;
+  border: none;
   background-color: $orange-web;
   opacity: $lightly-transparent;
-  position:relative;
-  overflow:hidden;
-  border-radius:8px;
-  cursor:pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
 
   .profile-title {
     span {
       background-color: $oxford-blue;
     }
-
-
   }
-
-
 }

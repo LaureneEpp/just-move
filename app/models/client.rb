@@ -7,7 +7,7 @@ class Client < ApplicationRecord
   accepts_nested_attributes_for :bookings
   has_many :lessons, through: :bookings
   has_many :likes
-
+  
   validates :first_name, :last_name, presence: true
   validates :bio, length: { maximum: 50 }
 

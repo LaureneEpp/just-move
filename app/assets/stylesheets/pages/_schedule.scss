@@ -7,6 +7,22 @@
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px $black;
 
+    .card-image {
+      position: relative;
+      text-align: center;
+      color: $cornsilk;
+
+      .schedule-time {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: $font-weight-bolder;
+        font-size: xxx-large;
+      }
+      
+    }
+
     .card-body {
       padding: $spacing;
     }

@@ -27,8 +27,9 @@ Rails.application.routes.draw do
     end
   end
   # resources :schedules, except: [:index]
-  resources :schedules, except: [:index]  do
-    resources :bookings, except: [:index, :show]
-  end
-  resources :bookings, only: [:index, :show]
+  # resources :schedules, except: [:index]  do
+  #   resources :bookings, except: [:index, :show]
+  # end
+  resources :schedules
+  resources :bookings, only: [:index, :create, :destroy]
 end

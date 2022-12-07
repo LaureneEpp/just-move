@@ -2,7 +2,10 @@
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6 col-xl-4">
       <div id="schedule">
+        <div class="card-image">
         <%= image_tag("trainer-default.jpeg", width: '100%') %>
+        <h1 class="schedule-time"><%= @schedule.start_time.strftime('%d/%m %H:%M') %></h1>
+        </div>
         <div class="card-body">
           <div class="text-center">
             <h5 class="card-title"><%= @schedule.lesson.title.upcase %></h5>

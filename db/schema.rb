@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_160740) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_120217) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,13 +58,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_160740) do
     t.datetime "start"
     t.text "cancellation_reason"
     t.boolean "refunded"
-    t.bigint "trainer_id", null: false
     t.bigint "schedule_id", null: false
-    t.bigint "lesson_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "client_id"
     t.integer "status", default: 0
+    t.bigint "lesson_id"
+    t.bigint "trainer_id"
+    t.index ["client_id", "schedule_id"], name: "index_bookings_on_client_id_and_schedule_id", unique: true
     t.index ["client_id"], name: "index_bookings_on_client_id"
     t.index ["lesson_id"], name: "index_bookings_on_lesson_id"
     t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
@@ -144,9 +145,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_160740) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "lessons"
   add_foreign_key "bookings", "schedules"
-  add_foreign_key "bookings", "trainers"
   add_foreign_key "clients", "users"
   add_foreign_key "likes", "clients"
   add_foreign_key "likes", "lessons"

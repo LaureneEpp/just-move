@@ -1,29 +1,38 @@
-<div id="schedule">
-  <div class="schedule-header py-5 bg-image-full" style="background-image: url(<%= image_path "yoga-default02.jpeg"%>">
-     <div class="text-center my-5">
-      <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '200x200', class:"img-fluid rounded-circle") %>
-      <h1 class= "fs-3 fw-bolder"><%= @schedule.lesson.title %></h1>
-      <p class="mb-0"><%= @schedule.trainer.name %></p>
-    </div>
-  </div>
-  <div class="schedule-content py-5">
-      <div class="schedule-description">
-        <h2>Description</h2>
-        <p class="lead"><%= @schedule.lesson.description %></p>
-        <p class="mb-0"><%= @schedule.lesson.category %></p>
-        <p class="mb-0"><%= @schedule.lesson.level %></p>
-        <p class="mb-0">Duration: <%= @schedule.lesson.duration %>min</p>
-        <p class="mb-0"><%= @schedule.lesson.cost %></p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 col-xl-4">
+      <div id="schedule">
+        <%= image_tag("trainer-default.jpeg", width: '100%') %>
+        <div class="card-body">
+          <div class="text-center">
+            <h5 class="card-title"><%= @schedule.lesson.title.upcase %></h5>
+            <p class="text-muted mb-4"><%= @schedule.trainer.name %></p>
+            <p class="lead"><%= @schedule.lesson.description %></p>
+          </div>
+          <div>
+            <div class="d-flex justify-content-between">
+              <span>Level</span><span><%= @schedule.lesson.level %></span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Duration</span><span><%= @schedule.lesson.duration %>min</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Cost</span><span><%= humanized_money_with_symbol(@schedule.lesson.price) %></span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between total font-weight-bold mt-4">
+            <div class="booking">
+              <div class="mx-4">    
+                <% if @booking.nil? %>
+                  <%= button_to 'Book', bookings_path, params:{booking: {schedule_id: @schedule.id, trainer_id: @schedule.trainer.id, lesson_id: @schedule.lesson.id, client_id: current_user.client.id}}, class:"btn btn-danger", method: :post  %>
+                <% else %>
+                  <%= button_to 'Cancel', booking_path(@booking), class:"btn btn-outline-danger", method: :delete  %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-        <div class="booking">
-          <%= simple_form_for [@schedule, Booking.new], html: { turbo: false } do |f| %>
-            <%= f.input :lesson_id, as: :hidden, value: @schedule.lesson.id %>
-            <%= f.input :trainer_id, as: :hidden, value: @schedule.trainer.id %>
-            <%= f.input :client_id, as: :hidden, value: current_user.client.id %>
-            <%= f.input :start, as: :hidden, value: @schedule.start_time %>
-            <%= f.submit 'Book this class', class:"btn btn-outline-light mt-4" %>
-          <% end %>
-         </div>
-     </div>
+    </div>
   </div>
 </div>

@@ -7,6 +7,7 @@ class SchedulesController < ApplicationController
 
   def show
     @bookings = @schedule.bookings
+    @booking = current_user.client.bookings.find_by(schedule: @schedule)
   end
 
   def new

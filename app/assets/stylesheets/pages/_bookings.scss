@@ -1,8 +1,15 @@
 #bookings-index {
   background-color: $orange-web;
-  padding: 50px 50px 75px 100px;
+  opacity: $lightly-transparent;
+  width: inherit;
 
+  .table-responsive {
+    box-shadow: 5px 5px 5px 5px $black;
+  }
+  
   table {
     color: $cornsilk;
+    background-color: $davys-grey;
   }
+
 }

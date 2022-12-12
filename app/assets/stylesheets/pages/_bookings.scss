@@ -5,11 +5,16 @@
 
   .table-responsive {
     box-shadow: 5px 5px 5px 5px $black;
+    border-radius: 5px;
   }
   
   table {
     color: $cornsilk;
     background-color: $davys-grey;
+
+   tr,  td {
+      text-align: center;
+    }
   }
 
 }

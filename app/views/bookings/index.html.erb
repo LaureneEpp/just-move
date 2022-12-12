@@ -1,52 +1,42 @@
-<div id="bookings-index">
-  <div class="bookings-title d-flex justify-content-center my-5">
-    <h1>My bookings</h1>
-  </div>
-  <div class=" h-100">
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="card shadow-2-strong" style="background-color: #14213d;">
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-borderless mb-0">
-                    <thead>
-                      <tr>
-                        <th scope="col">
-                        </th>
-                        <th scope="col">DATE</th>
-                        <th scope="col">TITLE</th>
-                        <th scope="col">CATEGORY</th>
-                        <th scope="col">DURATION</th>
-                        <th scope="col">COST</th>
-                        <th scope="col">TRAINER</th>
-                        <th scope="col">STATUS</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @bookings.each do |booking|  %>
-                      <tr>
-                        <th scope="row">
-                        </th>
-                        <td><%= booking.schedule.start_time.strftime("%d/%m")  %></td>
-                        <td><%= booking.lesson.title %></td>
-                        <td><%= booking.lesson.category %></td>
-                        <td><%= booking.lesson.duration %></td>
-                        <td><%= booking.lesson.cost %></td>
-                        <td><%= booking.trainer.name %></td>
-                        <td><%= booking.status %></td>
-                        <td>
-                        </td>
-                      </tr>
-                      <% end -%>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="container m-auto px-4">
+  <div id="bookings-index" class="py-3 px-3">
+    <div class="bookings-title my-5 d-flex justify-content-center">
+      <h1>My bookings</h1>
+    </div>
+    <div class="pb-5 px-3">
+      <div class="table-responsive">
+        <table class="table table-borderless mb-0">
+          <thead>
+            <tr>
+              <th scope="col">
+              </th>
+              <th scope="col">DATE</th>
+              <th scope="col">TITLE</th>
+              <th scope="col">CATEGORY</th>
+              <th scope="col">DURATION</th>
+              <th scope="col">COST</th>
+              <th scope="col">TRAINER</th>
+              <th scope="col">STATUS</th>
+            </tr>
+          </thead>
+          <tbody >
+            <% @bookings.each do |booking|  %>
+              <tr>
+                <th scope="row">
+                </th>
+                <td><%= booking.schedule.start_time.strftime("%d/%m")  %></td>
+                <td><%= booking.lesson.title %></td>
+                <td><%= booking.lesson.category %></td>
+                <td><%= booking.lesson.duration %></td>
+                <td><%= humanized_money_with_symbol(booking.lesson.price) %></td>
+                <td><%= booking.trainer.name %></td>
+                <td><%= booking.status %></td>
+                <td>
+                </td>
+              </tr>
+            <% end -%>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

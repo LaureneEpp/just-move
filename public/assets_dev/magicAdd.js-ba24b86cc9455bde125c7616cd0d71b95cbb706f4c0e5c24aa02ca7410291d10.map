@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../javascript/magicAdd.js"],
+  "sourcesContent": ["// const  magicAdd = (a, b) => {\n//   return a + b;\n// }\n\nconst magicAdd = () => {\n  console.log('medium XL')\n}\nexport default  magicAdd();"],
+  "mappings": ";;AAIA,MAAM,WAAW,MAAM;AACrB,YAAQ,IAAI,WAAW;AAAA,EACzB;AACA,MAAO,mBAAS,SAAS;",
+  "names": []
+}

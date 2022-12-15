@@ -10,11 +10,6 @@ let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 // import "trix"
 // import "@rails/actiontext"
 
-import magicAdd from './magicAdd.js'
-// import toggleLikeButton from './toggle_favorite.js'
+import activeNavbar from './responsiveNavbar'
 
-// let a = magicAdd(2, 4);
-
-// console.log(`From mainjs, magicAdd result is ${a}`)
-
-console.log('hello france ')
+console.log('hello test ')

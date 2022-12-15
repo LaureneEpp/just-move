@@ -2,7 +2,7 @@
 //   return a + b;
 // }
 
-const magicAdd = () => {
-  console.log('medium XL')
-}
-export default  magicAdd();
+// const magicAdd = () => {
+//   console.log('medium XL')
+// }
+// export default  magicAdd();

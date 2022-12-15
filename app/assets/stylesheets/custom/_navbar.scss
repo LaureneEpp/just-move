@@ -1,9 +1,29 @@
 .navbar {
-  background-color: $black;
+  .nav-link {
+    color: $orange-web;
+    font-weight: $font-weight-normal;
+    cursor: pointer;
 
-  a { color: $orange-web;}
+    &:hover {
+      border: 2px solid $orange-web !important;
+      // font-weight: $font-weight-bold;
+      color: $cornsilk;
+    }
+  }
 
   .dropdown-menu {
     background-color: $oxford-blue;
+
+    .dropdown-item {
+      color: $orange-web;
+    }
+  }
+  .active  {
+    border: 2px solid $orange-web !important;
+    font-weight: $font-weight-bold;
+    background: $orange-web;
+    color: $cornsilk;
+    // background-color: #666;
+    // color: white;
   }
 }

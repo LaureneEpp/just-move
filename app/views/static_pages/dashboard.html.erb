@@ -6,13 +6,10 @@
       <div class="container px-5">
         <h1 class="masthead-heading mb-0">Just Move</h1>
         <h2 class="masthead-subheading mb-0">Schedule your own sporty agenda !</h2>
-        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+        <%= link_to "About us", static_pages_about_path, class:"btn bg-dark text-white btn-xl rounded mt-5" %>
+
       </div>
     </div>
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
   </header>
   <!-- Content section 1-->
   <section>
@@ -31,7 +28,7 @@
           <%= date %>
           <% schedules.each do |schedule| %>
             <div class="schedule mt-3">
-              <p class="mb-1 fw-bold"><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
+              <p class="mb-1 fw-bold             "><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
               <small><%= schedule.time %></small>
             </div>
           <% end %>

@@ -1,18 +1,33 @@
 <!-- Header-->
-  <div id="dashboard">
-
+<div id="dashboard">
   <header class="masthead text-center">
     <div class="masthead-content">
       <div class="container px-5">
         <h1 class="masthead-heading mb-0">Just Move</h1>
         <h2 class="masthead-subheading mb-0">Schedule your own sporty agenda !</h2>
-        <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+        <button class="d-block mt-5 p-3 btn bg-dark text-white mx-auto" data-bs-toggle="modal" data-bs-target="#modal1">About us</button>
+        <!-- Modal 1-->
+        <div class="modal fade" id="modal1" data-bs-backdrop="static">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-dark" aria-labelledby="description">
+                  About us
+                </h5>
+                <button class="btn-close text-red" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-dark text-white">
+                <p class="text-wrap text-start">Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Totam rem aperiam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia.</p>
+                <p class="text-wrap text-start">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Fugiat quo voluptas nulla pariatur? Fugiat quo voluptas nulla pariatur?</p>
+              </div>
+              <%# <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div> %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
   </header>
   <!-- Content section 1-->
   <section>
@@ -31,7 +46,7 @@
           <%= date %>
           <% schedules.each do |schedule| %>
             <div class="schedule mt-3">
-              <p class="mb-1 fw-bold"><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
+              <p class="mb-1 fw-bold             "><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
               <small><%= schedule.time %></small>
             </div>
           <% end %>
@@ -45,7 +60,6 @@
       <div class="row gx-5 align-items-center">
         <div class="col-lg-6 order-lg-2">
           <div class="p-5"><%= image_tag("trainer-default.jpeg", alt: "trainer", class:"img-fluid rounded-circle") %></div>
-
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">
@@ -56,9 +70,8 @@
       </div>
     </div>
   </section>
-
   <!-- Content section 3-->
-<!--   <section>
+  <!--   <section>
     <div class="container px-5">
       <div class="row gx-5 align-items-center">
         <div class="col-lg-6">
@@ -73,7 +86,4 @@
       </div>
     </div>
   </section> -->
-
-  </div>
-
-
+</div>

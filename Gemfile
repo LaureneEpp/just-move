@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 gem 'sass-rails', '~> 6.0'
+gem 'erb_lint'
 
 # Use authentication
 gem "devise", "~> 4.8"

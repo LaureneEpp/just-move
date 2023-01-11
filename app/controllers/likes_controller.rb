@@ -1,4 +1,9 @@
 class LikesController < ApplicationController
+
+  def index
+    @likes = Like.where(client_id: current_user.client)
+  end
+
   def create
     @like = current_user.client.likes.new(like_params)
     flash[:notice] = @like.errors.full_messages.to_sentence unless @like.save

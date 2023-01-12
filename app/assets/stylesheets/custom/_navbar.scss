@@ -1,4 +1,8 @@
 .navbar {
+  .navbar-brand {
+    font-weight: 900;
+  }
+
   .nav-link {
     color: $orange-web;
     font-weight: $font-weight-normal;
@@ -18,7 +22,8 @@
       color: $orange-web;
     }
   }
-  .active  {
+
+  .active {
     border: 2px solid $orange-web !important;
     font-weight: $font-weight-bold;
     background: $orange-web;

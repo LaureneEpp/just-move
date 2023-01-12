@@ -1,12 +1,11 @@
 .simple-calendar {
-
-  width: inherit;
+  width: 100%;
   overflow-x: auto;
 
   table {
     min-height: 80vh;
     box-shadow: 5px 5px 5px 5px $black;
-    
+
     .prev-month {
       background-color: $gainsboro;
     }
@@ -14,6 +13,7 @@
     .next-month {
       background-color: $cadet-blue-crayola;
     }
+
     .current-month {
       background-color: $light-gray;
     }

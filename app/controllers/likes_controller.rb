@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   def index
     @likes = Like.where(client_id: current_user.client)
   end
@@ -15,7 +14,7 @@ class LikesController < ApplicationController
     @lesson = params[:lesson_id]
     @like.destroy
     respond_to do |format|
-      format.html { redirect_to lesson, notice: "Your like as been deleted." }
+      format.html { redirect_to lesson, notice: 'Your like as been deleted.' }
       format.turbo_stream
     end
   end

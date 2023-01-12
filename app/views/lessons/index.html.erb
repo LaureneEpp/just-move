@@ -3,12 +3,46 @@
     <div class="row">
       <div class="col text-center my-5">
         <h1 class="display-4 w-bold ">LESSONS</h1>
-
-          <%= link_to(likes_path) do %>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal2">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
               <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" />
             </svg>
-          <% end %>
+        </button>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-dark" aria-labelledby="description">
+                  My favorites
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-dark text-white d-flex justify-content-center">
+                  <table class="table text-white w-75">
+                    <tbody>
+                     <% @likes.each do |like| %>
+                      <tr>
+                        <td><%= like.lesson.title %></td>
+                        <td><%= like.lesson.category %></td>
+                        <td><%= link_to(lesson_path(like.lesson)) do %>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                          </svg>
+                        <% end %></td>
+                      </tr>
+                    <% end %>
+                    </tbody>
+                  </table>
+              </div>
+              <%# <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div> %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">

@@ -3,19 +3,22 @@
   opacity: $lightly-transparent;
   width: inherit;
   background-color: none;
-
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .table-responsive {
     box-shadow: 5px 5px 5px 5px $black;
     border-radius: 5px;
   }
-  
+
   table {
     color: $cornsilk;
     background-color: $davys-grey;
 
-   tr,  td {
+    tr,
+    td {
       text-align: center;
     }
   }

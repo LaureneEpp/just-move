@@ -14,12 +14,13 @@
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title text-dark" aria-labelledby="description">
+                <h5 class="modal-title fs-4 text-dark" aria-labelledby="description">
                   My favorites
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body bg-dark text-white d-flex justify-content-center">
+                <% if @like.present? %>
                   <table class="table text-white w-75">
                     <tbody>
                      <% @likes.each do |like| %>
@@ -36,6 +37,9 @@
                     <% end %>
                     </tbody>
                   </table>
+                  <% else %>
+                    <p class="fs-5">You don't have any favorites</p>
+                  <% end %>
               </div>
               <%# <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

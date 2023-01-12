@@ -1,44 +1,48 @@
 <div class="container m-auto px-4">
   <div id="bookings-index" class="py-3 px-3">
-    <div class="bookings-title my-5 d-flex justify-content-center">
-      <h1>My bookings</h1>
+    <div class="bookings-title my-5">
+      <h1 class="fw-semibold">My bookings</h1>
     </div>
-    <div class="pb-5 px-3">
-      <div class="table-responsive">
-        <table class="table table-borderless mb-0">
-          <thead>
-            <tr>
-              <th scope="col">
-              </th>
-              <th scope="col">DATE</th>
-              <th scope="col">TITLE</th>
-              <th scope="col">CATEGORY</th>
-              <th scope="col">DURATION</th>
-              <th scope="col">COST</th>
-              <th scope="col">TRAINER</th>
-              <th scope="col">STATUS</th>
-            </tr>
-          </thead>
-          <tbody >
-            <% @bookings.each do |booking|  %>
+    <% if @bookings.present? %>
+      <div class="pb-5 px-3">
+        <div class="table-responsive">
+          <table class="table table-borderless mb-0">
+            <thead>
               <tr>
-                <th scope="row">
+                <th scope="col">
                 </th>
-                <td><%= booking.schedule.start_time.strftime("%d/%m")  %></td>
-                <td><%= booking.lesson.title %></td>
-                <td><%= booking.lesson.category %></td>
-                <td><%= booking.lesson.duration %></td>
-                <td><%= humanized_money_with_symbol(booking.lesson.price) %></td>
-                <td><%= booking.trainer.name %></td>
-                <td><%= booking.status %></td>
-                <td>
-                </td>
+                <th scope="col">DATE</th>
+                <th scope="col">TITLE</th>
+                <th scope="col">CATEGORY</th>
+                <th scope="col">DURATION</th>
+                <th scope="col">COST</th>
+                <th scope="col">TRAINER</th>
+                <th scope="col">STATUS</th>
               </tr>
-            <% end -%>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <% @bookings.each do |booking| %>
+                <tr>
+                  <th scope="row">
+                  </th>
+                  <td><%= booking.schedule.start_time.strftime("%d/%m") %></td>
+                  <td><%= booking.lesson.title %></td>
+                  <td><%= booking.lesson.category %></td>
+                  <td><%= booking.lesson.duration %></td>
+                  <td><%= humanized_money_with_symbol(booking.lesson.price) %></td>
+                  <td><%= booking.trainer.name %></td>
+                  <td><%= booking.status %></td>
+                  <td>
+                  </td>
+                </tr>
+              <% end -%>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <p class="fs-3">No bookings ! You just need to move.</p>
+      <%= link_to "new lesson", lessons_path, class:"btn btn-outline-success my-3" %>
+    <% end %>
   </div>
 </div>
-

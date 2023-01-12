@@ -2,11 +2,10 @@ Rails.application.routes.draw do
   # get 'static_pages/landing_page'
   root 'static_pages#dashboard'
   namespace :admin do
-      resources :lessons
-      # resources :trainers
-      root to: "lessons#index", as: 'home'
-    end
-
+    resources :lessons
+    # resources :trainers
+    root to: 'lessons#index', as: 'home'
+  end
 
   # get 'users/profile'
   # get 'users/index'
@@ -15,12 +14,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show, :index]
+  resources :users, only: %i[show index]
   # resources :lesson_payments
-  resources :lessons, only: [:show, :index]
-  resources :likes, only: [:create, :destroy]
-  resources :clients, only: [:show, :edit, :update]
-  resources :trainers, only: [:show, :edit, :update] do
+  resources :lessons, only: %i[show index]
+  resources :likes, only: %i[index create destroy]
+  resources :clients, only: %i[show edit update]
+  resources :trainers, only: %i[show edit update] do
     collection do
       get 'list_schedules'
       get 'list_bookings'
@@ -31,5 +30,5 @@ Rails.application.routes.draw do
   #   resources :bookings, except: [:index, :show]
   # end
   resources :schedules
-  resources :bookings, only: [:index, :create, :destroy]
+  resources :bookings, only: %i[index create destroy]
 end

@@ -1,7 +1,12 @@
 class TrainersController < ApplicationController
   before_action :set_trainer, only: [:show, :edit, :update]
 
+  def index
+    @trainers = User.where(is_trainer: true)
+  end
+  
   def show
+    @trainer = current_user.trainer
     @schedules = Schedule.where(trainer_id: current_user.trainer)
     @schedule = Schedule.new
   end

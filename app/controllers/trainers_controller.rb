@@ -6,7 +6,6 @@ class TrainersController < ApplicationController
   end
   
   def show
-    @trainer = current_user.trainer
     @schedules = Schedule.where(trainer_id: current_user.trainer)
     @schedule = Schedule.new
   end

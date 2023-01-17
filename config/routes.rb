@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :lessons, only: %i[show index]
   resources :likes, only: %i[index create destroy]
   resources :clients, only: %i[show edit update]
-  resources :trainers, only: %i[show edit update] do
+  resources :trainers, only: %i[index show edit update] do
     collection do
       get 'list_schedules'
       get 'list_bookings'

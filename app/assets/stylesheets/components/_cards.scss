@@ -24,8 +24,8 @@ div {
       // min-height: 300px;
     }
 
-   
-  
+
+
     .card-footer {
       background: none;
       border-top: none;
@@ -75,5 +75,23 @@ div {
     span {
       background-color: $oxford-blue;
     }
+  }
+}
+
+// Trainer Card
+.card-trainer {
+  .card-image {
+    position: relative;
+    text-align: center;
+    color: $cornsilk;
+  }
+
+  .trainer-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: $font-weight-bolder;
+    font-size: xxx-large;
   }
 }

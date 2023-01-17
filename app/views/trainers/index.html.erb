@@ -1,15 +1,24 @@
-<!-- <p style="color: green"><%= notice %></p>
-
-<h1>Trainers</h1>
-
-<div id="trainers">
-  <% @trainers.each do |trainer| %>
-    <%= render trainer %>
-    <p>
-      <%= link_to "Show this trainer", trainer %>
-    </p>
-  <% end %>
+<div class="py-5">
+  <div class="container">
+      <div class="trainers-title">
+        <h1 class="fs-1 fw-semibold my-4">Trainers</h1>
+      </div>
+    <div id="trainers">
+      <div class="grid text-center">
+          <% @trainers.each do |trainer| %>
+            <div class="g-col-6">
+              <div class="card-trainer"  style="width:18rem;">
+                <div class="card-image">
+                  <%= link_to trainer_path(trainer) do %>
+                    <%= image_tag("trainer-default.jpeg", width: '100%', height: '100%', class:"rounded") %>
+                  <% end %>
+                  <h3 class="trainer-name"><%= trainer.first_name %> <%= trainer.last_name %></h3>
+                  </p>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New trainer", new_trainer_path %>
- -->

@@ -5,7 +5,7 @@
         <div class="card-profile p-3 py-4">
           <div class="text-center">
             <% if @trainer.image.present? %>
-              <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle")%>
+              <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle") %>
             <% else %>
               <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '100x100', class:"img-fluid rounded-circle") %>
             <% end %>
@@ -22,25 +22,14 @@
               <p class="fs-5"><%= @trainer.experience %></p>
             </div>
             <div class="profil-buttons my-3">
-              <%= link_to "Back", root_path , class:"btn btn-outline-dark"%>
-              <%= link_to "Edit", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
-              <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold js-modal", data: { turbo_frame: "modal" } %>
+              <%= link_to "Back", root_path , class:"btn btn-outline-dark" %>
             </div>
             <div class="d-flex flex-column">
               <% if @trainer.schedules.present? %>
                 <%= turbo_frame_tag "list_schedules" do %>
                   <div id="schedules-index">
                     <div class="mt-4 mb-2">
-                      <%= link_to 'Your schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
-                    </div>
-                  </div>
-                <% end -%>
-              <% end %>
-              <% if @trainer.bookings.present? %>
-                <%= turbo_frame_tag "list_bookings" do %>
-                  <div id="bookings-index">
-                    <div class="my-2">
-                      <%= link_to "Your bookings", list_bookings_trainers_path(@trainers), class:"btn btn-outline-dark my-8"  %>
+                      <%= link_to 'Schedules', list_schedules_trainers_path(@trainers), class:"btn btn-outline-success my-8" %>
                     </div>
                   </div>
                 <% end -%>

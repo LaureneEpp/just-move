@@ -1,26 +1,26 @@
 #bookings-index {
-  background-color: $orange-web;
-  opacity: $lightly-transparent;
-  width: inherit;
-  background-color: none;
+  // background-color: $orange-web;
+  // opacity: $lightly-transparent;
+  // width: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .table-responsive {
-    box-shadow: 5px 5px 5px 5px $black;
-    border-radius: 5px;
-  }
-
   table {
     color: $cornsilk;
-    background-color: $davys-grey;
+    background-color: none;
+
 
     tr,
     td {
       text-align: center;
     }
+  }
+
+  .table-responsive {
+    box-shadow: 5px 5px 5px 5px $black;
+    border-radius: 5px;
   }
 
 }

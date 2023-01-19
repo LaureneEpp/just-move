@@ -7,6 +7,10 @@
   justify-content: center;
   align-items: center;
 
+  .container {
+    background: rgba(233, 236, 239, 0.3);
+  }
+
   table {
     color: $cornsilk;
     background-color: none;

@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     #   if params[:all]
     #     @bookings = Booking.all
@@ -16,12 +15,36 @@ class BookingsController < ApplicationController
     redirect_to @booking.schedule
   end
 
+  # def edit
+  #   @booking = Booking.find(params[:id])
+  # end
+
+  # def update
+  #   @booking = Booking.find(params[:id])
+  #   @booking.update(status: 'completed')
+  # end
+
+  def change_status
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 1)
+    redirect_to user_path
+  end
+
   def destroy
     @booking = current_user.client.bookings.find(params[:id])
     @schedule = params[:schedule_id]
     @booking.destroy
     respond_to do |format|
       format.html { redirect_to schedule, notice: 'Your booking as been deleted.' }
+      format.turbo_stream
+    end
+  end
+
+  def reject_booking
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path, notice: 'Your booking as been deleted.' }
       format.turbo_stream
     end
   end

@@ -31,5 +31,10 @@ Rails.application.routes.draw do
   #   resources :bookings, except: [:index, :show]
   # end
   resources :schedules
-  resources :bookings, only: %i[index create destroy]
+  resources :bookings, only: %i[index create edit update destroy] do
+    member do
+      patch :change_status
+      delete :reject_booking
+    end
+  end
 end

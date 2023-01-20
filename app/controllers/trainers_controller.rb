@@ -1,10 +1,10 @@
 class TrainersController < ApplicationController
-  before_action :set_trainer, only: [:show, :edit, :update]
+  before_action :set_trainer, only: %i[show edit update]
 
   def index
     @trainers = User.where(is_trainer: true)
   end
-  
+
   def show
     @schedules = Schedule.where(trainer_id: current_user.trainer)
     @schedule = Schedule.new
@@ -21,8 +21,7 @@ class TrainersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -41,6 +40,7 @@ class TrainersController < ApplicationController
 
   def list_bookings
     @trainer_bookings = Booking.where(trainer_id: current_user.trainer)
+    @bookings = Booking.where(trainer_id: current_user.trainer)
   end
 
   private
@@ -53,5 +53,3 @@ class TrainersController < ApplicationController
     params.require(:trainer).permit(:first_name, :last_name, :phone, :bio, :experience, :user_id, :image)
   end
 end
-
-

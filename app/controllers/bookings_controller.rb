@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     #   if params[:all]
     #     @bookings = Booking.all
@@ -14,6 +13,18 @@ class BookingsController < ApplicationController
     @booking = current_user.client.bookings.new(booking_params)
     flash[:notice] = @booking.errors.full_messages.to_sentence unless @booking.save
     redirect_to @booking.schedule
+  end
+
+  def validate_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 1)
+    redirect_to user_path(current_user)
+  end
+  
+  def reject_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 2)
+    redirect_to user_path(current_user)
   end
 
   def destroy

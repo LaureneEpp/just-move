@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.update(status: 1)
     redirect_to user_path(current_user)
   end
-  
+
   def reject_booking
     @booking = Booking.find(params[:id])
     @booking.update(status: 2)

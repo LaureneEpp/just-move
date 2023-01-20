@@ -46,7 +46,7 @@
           <%= date %>
           <% schedules.each do |schedule| %>
             <div class="schedule mt-3">
-              <p class="mb-1 fw-bold             "><%= link_to schedule.lesson.title, schedule_path(schedule.id)%>|<%= schedule.lesson.category %> </p>
+              <p class="mb-1 fw-bold             "><%= link_to schedule.lesson.title, schedule_path(schedule.id) %>|<%= schedule.lesson.category %> </p>
               <small><%= schedule.time %></small>
             </div>
           <% end %>
@@ -59,7 +59,11 @@
     <div class="container px-5">
       <div class="row gx-5 align-items-center">
         <div class="col-lg-6 order-lg-2">
-          <div class="p-5"><%= image_tag("trainer-default.jpeg", alt: "trainer", class:"img-fluid rounded-circle") %></div>
+          <div class="p-5">
+            <%= link_to trainers_path do %>
+              <%= image_tag("trainer-default.jpeg", alt: "trainer", class:"img-fluid rounded-circle") %>
+            <% end %>
+          </div>
         </div>
         <div class="col-lg-6 order-lg-1">
           <div class="p-5">

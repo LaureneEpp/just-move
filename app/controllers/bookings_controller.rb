@@ -15,19 +15,16 @@ class BookingsController < ApplicationController
     redirect_to @booking.schedule
   end
 
-  # def edit
-  #   @booking = Booking.find(params[:id])
-  # end
-
-  # def update
-  #   @booking = Booking.find(params[:id])
-  #   @booking.update(status: 'completed')
-  # end
-
-  def change_status
+  def validate_booking
     @booking = Booking.find(params[:id])
     @booking.update(status: 1)
-    redirect_to user_path
+    redirect_to user_path(current_user)
+  end
+  
+  def reject_booking
+    @booking = Booking.find(params[:id])
+    @booking.update(status: 2)
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -36,15 +33,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     respond_to do |format|
       format.html { redirect_to schedule, notice: 'Your booking as been deleted.' }
-      format.turbo_stream
-    end
-  end
-
-  def reject_booking
-    @booking = Booking.find(params[:id])
-    @booking.destroy
-    respond_to do |format|
-      format.html { redirect_to user_path, notice: 'Your booking as been deleted.' }
       format.turbo_stream
     end
   end

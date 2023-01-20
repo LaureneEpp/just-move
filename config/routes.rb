@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   resources :clients, only: %i[show edit update]
   resources :trainers, only: %i[index show edit update] do
     collection do
-      get 'list_schedules'
+      get 'list_trainer_schedules'
+      get 'list_profile_schedules'
       get 'list_bookings'
     end
   end

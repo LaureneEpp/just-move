@@ -6,8 +6,8 @@ class TrainersController < ApplicationController
   end
 
   def show
-    @schedules = Schedule.where(trainer_id: current_user.trainer)
-    @schedule = Schedule.new
+    @schedules = Schedule.where(trainer_id: @trainer)
+    # @schedule = Schedule.new
   end
 
   def create
@@ -34,8 +34,12 @@ class TrainersController < ApplicationController
     current_user.update(first_name: current_user.client.first_name, last_name: current_user.client.last_name)
   end
 
-  def list_schedules
-    @trainer_schedules = Schedule.where(trainer_id: current_user.trainer)
+  def list_profile_schedules
+    @profile_schedules = Schedule.where(trainer_id: current_user.trainer)
+  end
+
+  def list_trainer_schedules
+    @trainer_schedules = Schedule.where(trainer_id: @trainer)
   end
 
   def list_bookings

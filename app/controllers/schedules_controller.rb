@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
-  before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_schedule, only: %i[show edit update destroy]
 
   # def index
   #   @schedules = Schedule.where(trainer_id: current_user.trainer)
@@ -22,7 +22,7 @@ class SchedulesController < ApplicationController
 
     if @schedule.save
       respond_to do |format|
-        format.html { redirect_to schedule_path(@schedule), notice: "New schedule was created." }
+        format.html { redirect_to schedule_path(@schedule), notice: 'New schedule was created.' }
         format.turbo_stream
       end
     else
@@ -30,8 +30,7 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   # def update
   #   @schedule.update(schedule_params)
@@ -45,11 +44,11 @@ class SchedulesController < ApplicationController
 
   private
 
-    def set_schedule
-      @schedule = Schedule.find(params[:id])
-    end
+  def set_schedule
+    @schedule = Schedule.find(params[:id])
+  end
 
-    def schedule_params
-      params.require(:schedule).permit(:start_time, :end_time, :trainer_id, :lesson_id)
-    end
+  def schedule_params
+    params.require(:schedule).permit(:start_time, :end_time, :trainer_id, :lesson_id)
+  end
 end

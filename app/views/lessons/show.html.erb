@@ -31,4 +31,19 @@
       <p class="lead"><%= @lesson.description %></p>
     </div>
   </div>
+            <div class="d-flex flex-column">
+              <div class="container">
+                <div id="schedules-index">
+                  <div class="container">
+                    <% @schedules.each do |schedule| %>
+                      <div class="schedule">
+                        <p class="lead mb-0"><%= schedule.trainer.name %></p>
+                        <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>
+                        <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
 </div>

@@ -6,7 +6,9 @@ class LessonsController < ApplicationController
     @likes = Like.where(client_id: current_user.client)
   end
 
-  def show; end
+  def show
+    @schedules = Schedule.where(lesson_id: @lesson)
+  end
 
   private
 

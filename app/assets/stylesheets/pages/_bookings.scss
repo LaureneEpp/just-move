@@ -1,20 +1,19 @@
 #bookings-index {
-  // background-color: $orange-web;
-  // opacity: $lightly-transparent;
-  // width: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .container {
     background: rgba(233, 236, 239, 0.3);
   }
 
+  .bookings-title {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   table {
     color: $cornsilk;
     background-color: none;
-    overflow-wrap: anywhere;
+    // overflow-wrap: anywhere;
 
     tr,
     td {

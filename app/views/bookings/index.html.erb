@@ -6,18 +6,18 @@
     <% if @bookings.present? %>
       <div class="pb-5 px-3">
         <div class="table-responsive">
-          <table class="table table-borderless mb-0">
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">
                 </th>
-                <th scope="col">DATE</th>
-                <th scope="col">TITLE</th>
-                <th scope="col">CATEGORY</th>
-                <th scope="col">DURATION</th>
-                <th scope="col">COST</th>
-                <th scope="col">TRAINER</th>
-                <th scope="col">STATUS</th>
+                <th scope="col">Date</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Trainer</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
                   <td><%= booking.schedule.start_time.strftime("%d/%m") %></td>
                   <td><%= booking.lesson.title %></td>
                   <td><%= booking.lesson.category %></td>
-                  <td><%= booking.lesson.duration %></td>
+                  <td><%= booking.lesson.duration %> min</td>
                   <td><%= humanized_money_with_symbol(booking.lesson.price) %></td>
                   <td><%= booking.trainer.name %></td>
                   <td><%= booking.status %></td>

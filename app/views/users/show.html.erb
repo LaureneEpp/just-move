@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container m-auto px-4">
     <% if current_user.is_trainer? %>
       <%= turbo_frame_tag @trainer do %>
     <div class="row d-flex align-items-center justify-content-center ">
@@ -8,7 +8,8 @@
             <% if @trainer.image.present? %>
               <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle") %>
             <% else %>
-              <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '100x100', class:"img-fluid rounded-circle") %>
+              <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '200x200', class:"img-fluid rounded-circle") %>
+
             <% end %>
           </div>
           <div class="text-center mt-3">

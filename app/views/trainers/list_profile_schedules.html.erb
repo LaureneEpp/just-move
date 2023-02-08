@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "list_schedules" do %>
   <div id="schedules-index">
     <div class="container">
-      <% @profile_schedules.each do |schedule| %>
+      <% @upcoming_schedules.each do |schedule| %>
           <div class="schedule">
             <p class="lead mb-0"><%= schedule.lesson.title %></p>
             <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>

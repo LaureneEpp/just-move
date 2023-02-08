@@ -39,9 +39,9 @@ div {
         text-decoration: none;
         color: black;
 
-        &:hover {
-          font-weight: bold;
-        }
+        // &:hover {
+        //   font-weight: bold;
+        // }
       }
     }
 
@@ -58,7 +58,7 @@ div {
   }
 }
 
-@media (max-width: 767px) {}
+// @media (max-width: 767px) {}
 
 
 // Profile Card styling

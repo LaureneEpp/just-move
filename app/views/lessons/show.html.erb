@@ -34,13 +34,15 @@
   <div class="d-flex flex-column">
     <div class="container">
       <div id="schedules-index">
-        <div class="container">
+        <div class="row">
           <% @schedules.each do |schedule| %>
-            <div class="schedule">
+          <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+            <div class="schedule mx-3">
               <p class="lead mb-0"><%= schedule.trainer.name %></p>
               <%= link_to schedule.start_time.strftime("%d/%m/%Y"), schedule_path(schedule) %>
               <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
             </div>
+          </div>
           <% end %>
         </div>
       </div>

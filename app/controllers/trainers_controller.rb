@@ -6,7 +6,7 @@ class TrainersController < ApplicationController
   end
 
   def show
-    @schedules = Schedule.where(trainer_id: @trainer)
+    @schedules = Schedule.where(trainer_id: @trainer).where('start_time >= ?', Date.today)
     # @schedule = Schedule.new
   end
 
@@ -36,6 +36,8 @@ class TrainersController < ApplicationController
 
   def list_profile_schedules
     @profile_schedules = Schedule.where(trainer_id: current_user.trainer)
+    @upcoming_schedules = Schedule.where(trainer_id: current_user.trainer).where('start_time >= ?', Date.today)
+    @previous_schedules = Schedule.where(trainer_id: current_user.trainer).where('start_time < ?', Date.today)
   end
 
   def list_trainer_schedules

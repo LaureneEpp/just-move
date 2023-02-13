@@ -1,17 +1,40 @@
-#modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 10px;
-  width: 300px;
-  word-break: break-word;
-  border-radius: 6px;
-  background-color: $davys-grey;
-  opacity: $almost-opaque;
+// #modal {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   right: 10px;
+//   width: 300px;
+//   word-break: break-word;
+//   border-radius: 6px;
+//   background-color: $davys-grey;
+//   opacity: $almost-opaque;
 
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+//   position: absolute;
+//   z-index: 2;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
+
+// .modal-btn {
+//     padding: 10px 14px;
+//     font-size: 18px;
+//     margin: 30px auto;
+//     display: block;
+//     min-width: 150px;
+//     cursor: pointer;
+// }
+
+// .modal-container {
+//     position: fixed;
+//     top: 0;
+//     width: 100vw;
+//     height: 100vh;
+// }
+
+// .overlay {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     background: $davys-grey;
+// }

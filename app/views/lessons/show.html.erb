@@ -1,50 +1,35 @@
-<div id="lesson">
-  <div class="row gx-4 gx-lg-5 py-4">
-    <div class="d-flex justify-content-center px-2">
-      <h1 class="fs-1 fw-bolder px-2"><%= @lesson.title.upcase %></h1>
-    </div>
-    <div class="d-flex justify-content-center mx-auto">
-      <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
-      <div class="mx-4">
-        <% like = current_user.client.likes.find_by(lesson: @lesson ) %>
-        <% if like.nil? %>
-          <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", method: :post  do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-            </svg>
-          <% end %>
-        <% else %>
-          <%= button_to like_path(like), id:"btnToUnlike", class:"btn btn-danger", method: :delete do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-            </svg>
-          <% end %>
-        <% end %>
+<div class="container m-auto">
+  <div id="lesson">
+    <div class="row gx-4 gx-lg-5 py-4">
+      <div class="d-flex justify-content-center px-2">
+        <h1 class="fs-1 fw-bolder px-2"><%= @lesson.title.upcase %></h1>
       </div>
-    </div>
-    <div class="d-flex justify-content-around fs-4 my-5">
-      <span><%= humanized_money_with_symbol(@lesson.price) %></span>
-      <span><%= @lesson.duration %> min</span>
-      <span>Level <%= @lesson.level %></span>
-    </div>
-    <div class="d-flex justify-content-center">
-      <p class="lead"><%= @lesson.description %></p>
-    </div>
-  </div>
-  <div class="d-flex flex-column">
-    <div class="container">
-      <div id="schedules-index">
-        <div class="row">
-          <% @schedules.each do |schedule| %>
-          <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-            <div class="schedule mx-3">
-              <p class="lead mb-0"><%= link_to schedule.trainer.name, schedule_path(schedule) %></p>
-              <p class="mb-0"><%= link_to schedule.start_time.strftime("%d/%m/%Y"), schedule_path(schedule) %></p>
-              <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
-            </div>
-          </div>
+      <div class="d-flex justify-content-center mx-auto">
+        <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
+        <div class="mx-4">
+          <% like = current_user.client.likes.find_by(lesson: @lesson ) %>
+          <% if like.nil? %>
+            <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", method: :post  do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+              </svg>
+            <% end %>
+          <% else %>
+            <%= button_to like_path(like), id:"btnToUnlike", class:"btn btn-danger", method: :delete do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+              </svg>
+            <% end %>
           <% end %>
         </div>
+      </div>
+      <div class="d-flex justify-content-around fs-4 my-5">
+        <span><%= humanized_money_with_symbol(@lesson.price) %></span>
+        <span><%= @lesson.duration %> min</span>
+        <span>Level <%= @lesson.level %></span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="lead"><%= @lesson.description %></p>
       </div>
     </div>
   </div>

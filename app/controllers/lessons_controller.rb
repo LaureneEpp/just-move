@@ -7,7 +7,9 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @schedules = Schedule.where(lesson_id: @lesson)
+    # @schedules = Schedule.where(lesson_id: @lesson)
+    @upcoming_schedules = Schedule.where(lesson_id: @lesson).where('start_time >= ?', Date.today)
+    @previous_schedules = Schedule.where(lesson_id: @lesson).where('start_time < ?', Date.today)
   end
 
   private

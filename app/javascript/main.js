@@ -11,5 +11,6 @@ let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 // import "@rails/actiontext"
 
 import activeNavbar from './responsiveNavbar'
+import hiddenButton from './responsiveButton'
 
 console.log('hello test ')

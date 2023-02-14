@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = Lesson.all
-    @likes = Like.where(client_id: current_user.client)
+    @likes = Like.where(client_id: current_user.client).sort_by { |like| like.lesson.title }
   end
 
   def show

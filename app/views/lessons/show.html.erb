@@ -1,51 +1,69 @@
-<div id="lesson">
-  <div class="row gx-4 gx-lg-5 py-4">
-    <div class="d-flex justify-content-center px-2">
-      <h1 class="fs-1 fw-bolder px-2"><%= @lesson.title.upcase %></h1>
-    </div>
-    <div class="d-flex justify-content-center mx-auto">
-      <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
-      <div class="mx-4">
-        <% like = current_user.client.likes.find_by(lesson: @lesson ) %>
-        <% if like.nil? %>
-          <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", method: :post  do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-            </svg>
-          <% end %>
-        <% else %>
-          <%= button_to like_path(like), id:"btnToUnlike", class:"btn btn-danger", method: :delete do %>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-            </svg>
-          <% end %>
-        <% end %>
+<div class="container m-auto">
+  <div id="lesson">
+    <div class="row gx-4 gx-lg-5 py-4">
+      <div class="d-flex justify-content-center px-2">
+        <h1 class="fs-1 fw-bolder px-2"><%= @lesson.title.upcase %></h1>
       </div>
-    </div>
-    <div class="d-flex justify-content-around fs-4 my-5">
-      <span><%= humanized_money_with_symbol(@lesson.price) %></span>
-      <span><%= @lesson.duration %> min</span>
-      <span>Level <%= @lesson.level %></span>
-    </div>
-    <div class="d-flex justify-content-center">
-      <p class="lead"><%= @lesson.description %></p>
-    </div>
-  </div>
-  <div class="d-flex flex-column">
-    <div class="container">
-      <div id="schedules-index">
-        <div class="row">
-          <% @schedules.each do |schedule| %>
-          <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-            <div class="schedule mx-3">
-              <p class="lead mb-0"><%= link_to schedule.trainer.name, schedule_path(schedule) %></p>
-              <p class="mb-0"><%= link_to schedule.start_time.strftime("%d/%m/%Y"), schedule_path(schedule) %></p>
-              <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
-            </div>
-          </div>
+      <div class="d-flex justify-content-center mx-auto">
+        <h4 class="fw-bold fs-3"><%= @lesson.category %></h4>
+        <div class="mx-4">
+          <% like = current_user.client.likes.find_by(lesson: @lesson ) %>
+          <% if like.nil? %>
+            <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", method: :post  do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+              </svg>
+            <% end %>
+          <% else %>
+            <%= button_to like_path(like), id:"btnToUnlike", class:"btn btn-danger", method: :delete do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+              </svg>
+            <% end %>
           <% end %>
         </div>
       </div>
+      <div class="d-flex justify-content-around fs-4 my-5">
+        <span><%= humanized_money_with_symbol(@lesson.price) %></span>
+        <span><%= @lesson.duration %> min</span>
+        <span>Level <%= @lesson.level %></span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="lead"><%= @lesson.description %></p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <!-- Button modal 4 -->
+      <button type="button" class="btn btn-outline-secondary my-3 p-2" data-bs-toggle="modal" data-bs-target="#modal4">Schedules</button>
+      <!-- Modal 4-->
+      <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-4 text-dark" id="modal4Label">Schedules</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-dark text-white d-flex justify-content-center">
+              <div id="schedules-index">
+                <div class="container py-3">
+                  <% @upcoming_schedules.each do |schedule| %>
+                      <div class="schedule">
+                        <p class="lead mb-0"><%= schedule.lesson.title %></p>
+                        <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>
+                        <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
+                        <p class="mb-0"><%= schedule.end_time.strftime("%k:%M") %></p>
+                      </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>s
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

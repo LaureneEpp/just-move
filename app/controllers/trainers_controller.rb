@@ -7,7 +7,8 @@ class TrainersController < ApplicationController
 
   def show
     @schedules = Schedule.where(trainer_id: @trainer).where('start_time >= ?', Date.today)
-    # @schedule = Schedule.new
+    @upcoming_schedules = Schedule.where(trainer_id: @trainer).where('start_time >= ?', Date.today)
+    @previous_schedules = Schedule.where(trainer_id: @trainer).where('start_time < ?', Date.today)
   end
 
   def create

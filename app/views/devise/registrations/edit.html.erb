@@ -1,40 +1,49 @@
-<div class="container my-5">
-  <div class="form-account">
-    <%= simple_form_for(resource, as: resource_name,  url: registration_path(resource_name), html: { method: :put, data: { turbo: false } }) do |f| %>
-      <% if @user.errors.any? %>
-      <div class="error-message">
-        <%= @user.errors.full_messages.to_sentence.capitalize %>
+<div class="container m-auto px-5 py-5">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-7">
+    <div class="card-profile p-3 py-4">
+      <div class="text-center mt-3">
+        <div class="profile-title">
+          <span class="p-1 px-4 rounded fs-4">Edit your account</span>
+        </div>
       </div>
-      <% end %>
+      <div class="form-account">
+        <%= simple_form_for(resource, as: resource_name,  url: registration_path(resource_name), html: { method: :put, data: { turbo: false } }) do |f| %>
+          <% if @user.errors.any? %>
+          <div class="error-message">
+            <%= @user.errors.full_messages.to_sentence.capitalize %>
+          </div>
+          <% end %>
+          <div class="form-inputs">
+            <%= f.input :first_name, required: true, autofocus: true, label: "Your first_ name", class:"form-input" %>
+            <%= f.input :last_name, required: true, autofocus: true, label: "Your last name" %>
+            <%= f.input :email, required: true, autofocus: true, label: "Your email", disabled: true, hint: 'You cannot change your email.' %>
+            <%= f.collection_radio_buttons :is_trainer, [[true, 'Yes'], [false, 'No']], :first, :last, label: "Are you a trainer?" %>
 
-      <div class="form-inputs">
-        <%= f.input :first_name, required: true, autofocus: true, label: "Your first_ name" %>
-        <%= f.input :last_name, required: true, autofocus: true, label: "Your last name" %>
-        <%= f.input :email, required: true, autofocus: true, label: "Your email", disabled: true, hint: 'You cannot change your email.' %>
-        <%= f.collection_radio_buttons :is_trainer, [[true, 'Yes'], [false, 'No']], :first, :last, label: "Are you a trainer?" %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <%= f.input :password, hint: "leave it blank if you don't want to change it",
+            required: false,
+            input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation, required: false,
+            input_html: { autocomplete: "new-password" } %>
+            <%= f.input :current_password, hint: "We need your current password to confirm your changes",
+            required: true,
+            input_html: { autocomplete: "current-password" } %>
+          </div>
+          <div class="form-actions">
+            <%= link_to "Cancel", root_path, class: "btn btn-outline-dark mt-1" %>
+            <%= f.button :submit, "Update", class: "btn btn-outline-light" %>
+          </div>
         <% end %>
-
-        <%= f.input :password, hint: "leave it blank if you don't want to change it",
-        required: false,
-        input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation, required: false,
-        input_html: { autocomplete: "new-password" } %>
-        <%= f.input :current_password, hint: "We need your current password to confirm your changes",
-        required: true,
-        input_html: { autocomplete: "current-password" } %>
-
       </div>
-      <div class="form-actions">
-        <%= link_to "Cancel", root_path, class: "btn btn-outline-dark" %>
-        <%= f.button :submit, "Update", class: "btn btn-outline-light"%>
+      <div class="profile-actions my-3">
+        <p>Unhappy?</p>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger" %>
       </div>
-    <% end %>
-  </div>
-    <div class="profile-actions my-3">
-      <p>Unhappy?</p>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger" %>
     </div>
+    </div>
+  </div>
 </div>

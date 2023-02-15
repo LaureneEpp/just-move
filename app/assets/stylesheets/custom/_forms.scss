@@ -1,4 +1,19 @@
-.form-profile, .form-account, .form-schedule {
-  display: grid;
-  place-items: center;
+// .form-profile, .form-account, .form-schedule {
+//   display: grid;
+//   place-items: center;
+// }
+
+#edit_user {
+  input {
+    margin: 5px auto 0px auto;
+  }
+
+  label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+}
+
+.form-actions {
+  margin-top: 10px;
 }

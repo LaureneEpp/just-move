@@ -9,7 +9,7 @@
         <div class="mx-4">
           <% like = current_user.client.likes.find_by(lesson: @lesson ) %>
           <% if like.nil? %>
-            <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", method: :post  do %>
+            <%= button_to likes_path, params:{like:{lesson_id: @lesson.id}}, id:"btnToLike", class:"btn btn-outline-danger", type:'button', method: :post  do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
               </svg>

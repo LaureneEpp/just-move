@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
     @schedule = params[:schedule_id]
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to schedule, notice: 'Your booking as been deleted.' }
+      format.html { redirect_to schedule, notice: 'Your booking has been deleted.' }
       format.turbo_stream
     end
   end

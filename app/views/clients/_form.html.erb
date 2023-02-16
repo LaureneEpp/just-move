@@ -17,7 +17,7 @@
             <%= f.input :bio, required: false, autofocus: true %>
           </div>
           <div class="form-actions">
-            <%= link_to "Cancel", root_path, class: "btn btn-outline-dark mt-1" %>
+            <%= link_to "Cancel", client_path(@client), class: "btn btn-outline-dark mt-1" %>
             <%= f.button :submit,'Update', class:"btn btn-outline-light mt-1" %>
           </div>
         <% end %>

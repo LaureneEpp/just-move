@@ -1,47 +1,120 @@
-<div class="container my-5">
-  <%= turbo_frame_tag @trainer do %>
-    <div class="row d-flex align-items-center justify-content-center ">
-      <div class="col-md-7">
-        <div class="card-profile p-3 py-4">
-          <div class="text-center">
-            <% if @trainer.image.present? %>
-              <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle") %>
-            <% else %>
-              <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '100x100', class:"img-fluid rounded-circle") %>
-            <% end %>
-          </div>
-          <div class="text-center mt-3">
-            <div class="profile-title">
-              <span class="p-1 px-4 rounded fs-4">Profile</span>
+<div class="container m-auto px-4 py-3">
+    <%= turbo_frame_tag @trainer do %>
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-7">
+          <div class="card-profile p-3 py-4">
+            <div class="text-center">
+              <% if @trainer.image.present? %>
+                <%= image_tag(@trainer.image_as_thumbnail, class:"rounded-circle") %>
+              <% else %>
+                <%= image_tag("trainer-default.jpeg", alt: "trainer", size: '200x200', class:"img-fluid rounded-circle") %>
+              <% end %>
             </div>
-            <h5 class="mt-2 mb-0 fs-4"><%= @trainer.name %></h5>
-            <span class="fs-6"><%= @trainer.phone %></span>
-            <div class="px-4 mt-1">
-              <p class="fs-5"><%= @trainer.bio %></p>
-              <p class="fs-5"><%= @trainer.experience %></p>
-            </div>
-            <div class="profil-buttons my-3">
-              <%= link_to "Back", root_path , class:"btn btn-outline-dark" %>
-            </div>
-            <div class="d-flex flex-column">
-              <div class="container">
-                <div id="schedules-index">
-                  <div class="container">
-                    <% @schedules.each do |schedule| %>
-                      <div class="schedule">
-                        <p class="lead mb-0"><%= schedule.lesson.title %></p>
-                        <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>
-                        <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
-                        <p class="mb-0"><%= schedule.end_time.strftime("%k:%M") %></p>
+            <div class="text-center mt-3">
+              <div class="profile-title">
+                <span class="p-1 px-4 rounded fs-4">Profile</span>
+              </div>
+              <h5 class="mt-2 mb-0 fs-4"><%= @trainer.name %></h5>
+              <span class="fs-6"><%= @trainer.phone %></span>
+              <div class="px-4 mt-1">
+                <p class="fs-5"><%= @trainer.bio %></p>
+                <p class="fs-5"><%= @trainer.experience %></p>
+              </div>
+              <div class="profil-buttons my-3">
+                <% if current_user.trainer === @trainer %>
+                  <%= link_to "Back", root_path , class:"btn btn-outline-dark" %>
+                  <%= link_to "Edit", edit_trainer_path(@trainer), class:"btn btn-outline-light" %>
+                  <%= link_to "+", new_schedule_path, class:"btn btn-outline-success fw-bold js-modal", data: { turbo_frame: "modal" } %>
+                <% else %>
+                  <%= link_to "Back", root_path , class:"btn btn-outline-dark" %>
+                <% end %>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <% if current_user.trainer == @trainer %>
+                  <% if @trainer.schedules.present? %>
+                    <!-- Button Modal 3 -->
+                    <button type="button" class="btn btn-outline-success my-8 w-45" data-bs-toggle="modal" data-bs-target="#modal3First">Your shedules</button>
+                  <% end %>
+                  <% if  @trainer.bookings.present? %>
+                    <%= turbo_frame_tag "list_bookings" do %>
+                      <div id="bookings-index">
+                        <div class="my-2">
+                          <%= link_to "Your bookings", list_bookings_trainers_path(@trainers), class:"btn btn-outline-dark my-8" %>
+                        </div>
                       </div>
-                    <% end %>
-                  </div>
-                </div>
+                    <% end -%>
+                  <% end %>
+                <% else %>
+                  <% if @trainer.schedules.present? %>
+                    <!-- Button Modal 3 -->
+                    <button type="button" class="btn btn-outline-success my-8 w-45" data-bs-toggle="modal" data-bs-target="#modal3">Schedules</button>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
       </div>
+    <% end -%>
+  <!-- Modal 3 -->
+  <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4 text-dark" id="modalLabel">Schedules</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark text-white d-flex justify-content-center">
+          <%= render template: "trainers/list_trainer_schedules" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>s
+        </div>
+      </div>
     </div>
-  <% end -%>
+  </div>
+  <div class="modal fade" id="modal3First" aria-hidden="true" aria-labelledby="modal3FirstLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4 text-dark" id="modal3FirstLabel">Your schedules</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark text-white d-flex justify-content-center">
+          <%= render template: "trainers/list_profile_schedules" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-outline-secondary" data-bs-target="#modal3Second" data-bs-toggle="modal">Previous schedules</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modal3Second" aria-hidden="true" aria-labelledby="modal3SecondLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4 text-dark" id="modal3SecondLabel">Your previous schedules</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-dark text-white d-flex justify-content-center">
+          <div id="schedules-index">
+            <div class="container py-3">
+              <% @previous_schedules.each do |schedule| %>
+                  <div class="schedule">
+                    <p class="lead mb-0"><%= schedule.lesson.title %></p>
+                    <p class="mb-0"><%= schedule.start_time.strftime("%d/%m/%Y") %></p>
+                    <p class="mb-0"><%= schedule.start_time.strftime("%k:%M") %></p>
+                    <p class="mb-0"><%= schedule.end_time.strftime("%k:%M") %></p>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-target="#modal3First" data-bs-toggle="modal">Back to upcoming schedules</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'user/show'
-  # get 'static_pages/landing_page'
   root 'static_pages#dashboard'
   namespace :admin do
     resources :lessons
